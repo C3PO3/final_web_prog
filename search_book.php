@@ -1,11 +1,26 @@
 <?php
+    // make form element to search a given book title
+    echo '<h1>Book Search</h1>
+    <form id="bookForm">
+        <label for="bookName">Enter Book Name:</label>
+        <input type="text" id="bookName" name="bookName">
+        <input type="submit" value="Search">
+    </form>
+    <div id="bookData"></div>';
+
+    if (isset($_GET['bookName'])) {
+        $bookName = $_GET['bookName'];
+        $url = make_url_given_book($bookName);
+        get_book_data($url, $bookName);
+    }
+
     // Function to fetch book data from the API using the provided URL
-    function get_book_data($url) {
+    function get_book_data($url, $bookName) {
         $result = file_get_contents($url); // Fetch data from the URL
         $data = json_decode($result, true); // Decode JSON data
 
         // Display message about the search
-        $message = "<h1>Book you are searching for is: <b>Lord of the Rings</b>.</h1>" .
+        $message = "<h2>Book you are searching for is: <b>" . $bookName . "</b>.</h2>" .
                 "<h2>There were a total of " . $data['totalItems'] . " results for your search.</h2>";
         echo $message;
 
@@ -30,17 +45,10 @@
                 echo $bookDiv;
             }
         }
-
-        // Additional information about the API and its usage
-        $assignmentInfo = "I used the Google Books API. It contains books and related information such as author, ISBN, etc.<br>" .
-                        "I found it online using the resources on developers.google.com at: <a href='https://developers.google.com/books/docs/v1/using#WorkingVolumes' target='_blank'>https://developers.google.com/books/docs/v1/using#WorkingVolumes</a>" .
-                        "I offered a book series name to search the API ('Lord+of+the+Rings').<br>" .
-                        "This could be useful for a library or book selling website. It could also be useful for a school or even looking through banned book lists as they have categories that books are sorted into";
-        echo $assignmentInfo;
     }
 
     // Call the function with the API URL
-    get_book_data("https://www.googleapis.com/books/v1/volumes?q=Lord+of+the+Rings");
+    // get_book_data("https://www.googleapis.com/books/v1/volumes?q=Lord+of+the+Rings");
 
     // Function to create a URL given a book name with spaces replaced by '+'
     function make_url_given_book($book_name) {
@@ -52,3 +60,13 @@
         return $new_url;
     }
 ?>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Book Search</title>
+    </head>
+    <body>
+    </body>
+</html>
