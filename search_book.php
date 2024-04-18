@@ -8,6 +8,7 @@
     </form>
     <div id="bookData"></div>';
 
+    // checker to see if the bookName is updated and submitted to search again
     if (isset($_GET['bookName'])) {
         $bookName = $_GET['bookName'];
         $url = make_url_given_book($bookName);
@@ -46,9 +47,6 @@
             }
         }
     }
-
-    // Call the function with the API URL
-    // get_book_data("https://www.googleapis.com/books/v1/volumes?q=Lord+of+the+Rings");
 
     // Function to create a URL given a book name with spaces replaced by '+'
     function make_url_given_book($book_name) {
