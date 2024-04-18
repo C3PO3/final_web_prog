@@ -18,6 +18,7 @@
                 $authorDiv = isset($volumeInfo['authors']) ? "<div class='author'>Author: " . implode(", ", $volumeInfo['authors']) . "</div>" : "<div class='author'>Author: unknown</div>";
                 $pubDiv = "<div class='pubDiv'>Published first in: " . $volumeInfo['publishedDate'] . "</div>";
                 $isbnDiv = isset($volumeInfo['industryIdentifiers']) && count($volumeInfo['industryIdentifiers']) > 0 ? "<div class='isbn'>ISBN: " . $volumeInfo['industryIdentifiers'][0]['identifier'] . "</div>" : "<div class='isbn'>ISBN: unknown</div>";
+                $description = isset($volumeInfo['description']) ? "<div class='description'>Description: " . $volumeInfo['description'] . "</div>" : "";
 
                 // Adding book image if available
                 if (isset($volumeInfo['imageLinks'])) {
@@ -25,7 +26,7 @@
                     $bookDiv .= $imageDiv;
                 }
 
-                $bookDiv .= $titleDiv . $authorDiv . $pubDiv . $isbnDiv . "</div>";
+                $bookDiv .= $titleDiv . $authorDiv . $pubDiv . $isbnDiv . $description . "</div>";
                 echo $bookDiv;
             }
         }
