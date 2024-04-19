@@ -1,3 +1,5 @@
+
+<!-- search for all books and info code -->
 <?php
     // make form element to search a given book title
     echo '<h1>Book Search</h1>
@@ -21,7 +23,7 @@
         $data = json_decode($result, true); // Decode JSON data
 
         // Display message about the search
-        $message = "<h2>Book you are searching for is: <b>" . $bookName . "</b>.</h2>" .
+        $message = "<h2>Your search term is: <b>" . $bookName . "</b>.</h2>" .
                 "<h2>There were a total of " . $data['totalItems'] . " results for your search.</h2>";
         echo $message;
 
