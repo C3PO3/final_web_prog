@@ -105,7 +105,7 @@ nav {
         <ul class="navbar" id="nav">
             <li class="logo"><a href="home_page.html"><img src="logo.png"></a></li>
             <li><a href="browse.php">Browse</a></li>
-            <li><a href="sell.php">Sell</a></li>
+            <li><a href="sell_book.php">Sell</a></li>
             <li><a href="about_us.html">About</a></li>
             <input type="text" placeholder="Search Title, Author, Keyword, or IBSN" size="50">
             <li class="cart"><a href="cart.php"><img src="cart.png"></a></li>
