@@ -15,7 +15,7 @@
             background-color: #ffffff;
             padding: 10px 0;
             position: sticky;
-            z-index: 1000;
+            z-index: 9999;
             max-width: 100%;
             width:100%;
             margin:0;
@@ -47,25 +47,22 @@
 
         .navbar li {
             display: inline;
-            margin-right: 20px;
+            margin-right: 15px;
         }
 
-        .navbar li.cart {
-            margin-right: 5px; 
+        .navbar .user-cart-container li.cart {
+            margin-right: 20px; 
         }
 
-        .navbar li.user {
-            margin-right: 20px;
+        .navbar .user-cart-container li.user {
+            margin-right: 10px;
         }
 
         .navbar li.logo img {
             max-width:300px !important;
 
         }
-        .navbar li.user img,
-        .navbar li.cart img {
-            max-height: 40px;
-        }
+
         .navbar li a {
             color: #264653;
             text-decoration: none;
@@ -157,8 +154,14 @@
                 display: flex;
                 flex-direction: column; 
                 position: absolute;
-                top: 120px; 
-                width: 100%; 
+                top: 100px; 
+                width: 400px; 
+                background-color: #ffffff; 
+                box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3); 
+                right: 0;
+                padding: 10px;
+
+
             }
 
             .menu.visible li:not(.logo):not(.icon) {
@@ -171,6 +174,18 @@
                 font-size:25px;
                 box-sizing: border-box;
                 margin-right:0px; 
+            }
+
+
+            .menu.visible .user-cart-container {
+                display: flex;
+                justify-content: space-between;
+                padding: 10px 20px;
+            }
+
+            .menu.visible .user-cart-container li {
+                width: 50%;
+                text-align: center; 
             }
             nav .search-container {
                 display: flex;
@@ -223,8 +238,10 @@
                     </a>
                 </div>
             </li>
-            <li class="cart"><a href="cart.php"><i class="fa fa-shopping-cart"></i></a></li>
-            <li class="user"><a href="user.php"><i class="fa fa-user"></i></a></li>
+            <div class="user-cart-container">
+                <li class="cart"><a href="cart.php"><i class="fa fa-shopping-cart"></i></a></li>
+                <li class="user"><a href="user.php"><i class="fa fa-user"></i></a></li>
+            </div>
             </div>
             <a href="javascript:void(0);" class="icon" onclick="toggleMenu()" style="text-decoration: none;">
                  <i class="fa fa-bars"></i>
