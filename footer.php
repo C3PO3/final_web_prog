@@ -1,0 +1,147 @@
+<!-- footer.php -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Footer styles */
+        footer {
+            background-color: #264653; 
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            margin: 10px 0;
+            width: 30%; 
+            min-width: 200px; 
+        }
+
+        .footer-section h3 {
+            color: #f4a261;
+            font-size: 20px;
+        }
+
+        .footer-section ul,
+        .footer-section p {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .footer-section ul li,
+        .footer-section p {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #f4a261;
+        }
+
+        .footer-section.user-cart {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-section.user-cart a {
+            margin: 0 15px;
+            font-size: 30px; 
+        }
+        .footer-section.social-media {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-section.social-media a {
+            margin: 0 10px;
+            font-size: 24px;
+        }
+
+        .scroll-to-top {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f4a261;
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: none; /* Hide initially */
+        }
+
+        .scroll-to-top.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <footer>
+        <div class="footer-content">
+
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="home_page.php">Home</a></li>
+                    <li><a href="browse.php">Browse</a></li>
+                    <li><a href="sell_book.php">Sell</a></li>
+                    <li><a href="about_us.html">About</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: support@shelveswap.com</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+
+            <div class="footer-section social-media">
+                <a href="https://www.facebook.com" ><i class="fa fa-facebook"></i></a>
+                <a href="https://www.twitter.com" ><i class="fa fa-twitter"></i></a>
+                <a href="https://www.instagram.com" ><i class="fa fa-instagram"></i></a>
+            </div>
+
+            <div class="footer-section user-cart">
+                <a href="user.php"><i class="fa fa-user"></i></a>
+                <a href="cart.php"><i class="fa fa-shopping-cart"></i></a>
+            </div>
+        </div>
+
+        <div class="scroll-to-top" id="scrollToTop">
+            <i class="fa fa-arrow-up"></i>
+        </div>
+    </footer>
+
+    <script>
+        const scrollToTopButton = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                scrollToTopButton.classList.add('active');
+            } else {
+                scrollToTopButton.classList.remove('active');
+            }
+        });
+
+        scrollToTopButton.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
