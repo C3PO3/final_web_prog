@@ -54,9 +54,10 @@
             margin-right: 20px; 
         }
 
-        .navbar .user-cart-container li.user {
-            margin-right: 10px;
+        .navbar li.search-container {
+            margin-right: 5px;
         }
+
 
         .navbar li.logo img {
             max-width:300px !important;
@@ -108,17 +109,7 @@
             cursor: pointer;
             color: #ccc;
         }
-        /* Default state: Hamburger icon (bars) */
-        .icon i.fa-bars {
-            font-size: 40px;
-            color: #264653; /* Adjust the color as needed */
-        }
 
-        /* Active state: X icon */
-        .icon i.fa-times {
-            font-size: 40px;
-            color: #264653; /* Adjust the color as needed */
-        }
 
 
         .search-icon i {
@@ -269,7 +260,6 @@
     
             menu.classList.toggle('visible');
         
-            // Toggle between bars and X icon
             if (menu.classList.contains('visible')) {
                 menuIcon.classList.remove('fa-bars');
                 menuIcon.classList.add('fa-times');
@@ -278,7 +268,17 @@
                 menuIcon.classList.add('fa-bars');
             }
         }
-    
+        window.addEventListener('resize', function() {
+            const menu = document.getElementById('menu');
+            const menuIcon = document.getElementById('menuIcon');
+            
+            if (menu.classList.contains('visible') && window.innerWidth > 1000) {
+                menu.classList.remove('visible');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+            
     </script>
  </body>
  </html>
