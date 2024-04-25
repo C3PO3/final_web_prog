@@ -51,11 +51,11 @@
         }
 
         .navbar .user-cart-container li.cart {
-            margin-right: 20px; 
+            margin-right: 15px; 
         }
 
         .navbar li.search-container {
-            margin-right: 5px;
+            margin-right: 0px;
         }
 
 
