@@ -92,7 +92,6 @@
             <div class="footer-section">
                 <h3>Navigation</h3>
                 <ul>
-                    <li><a href="home_page.php">Home</a></li>
                     <li><a href="browse.php">Browse</a></li>
                     <li><a href="sell_book.php">Sell</a></li>
                     <li><a href="about_us.html">About</a></li>
