@@ -6,11 +6,11 @@
     <style>
         /* Footer styles */
         footer {
-            background-color: #264653; 
+            background-color: #264653; /* Dark color */
             color: #ffffff;
             padding: 20px;
             text-align: center;
-            position: relative;
+            position: relative; /* For positioning the scroll-to-top button */
         }
 
         .footer-content {
@@ -52,26 +52,21 @@
             color: #f4a261;
         }
 
-        .footer-section.user-cart {
+        /* Footer section for user and cart icons */
+        .footer-section .user-cart, 
+        .footer-section .social-media{
+            margin-top:30px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .footer-section.user-cart a {
+        .footer-section .user-cart a, 
+        .footer-section .social-media a {
             margin: 0 15px;
-            font-size: 30px; 
-        }
-        .footer-section.social-media {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-size: 30px; /* Adjust size as needed */
         }
 
-        .footer-section.social-media a {
-            margin: 0 10px;
-            font-size: 24px;
-        }
 
         .scroll-to-top {
             position: absolute;
@@ -94,7 +89,6 @@
 <body>
     <footer>
         <div class="footer-content">
-
             <div class="footer-section">
                 <h3>Navigation</h3>
                 <ul>
@@ -103,24 +97,38 @@
                     <li><a href="sell_book.php">Sell</a></li>
                     <li><a href="about_us.html">About</a></li>
                 </ul>
+                 <div class="user-cart">
+                <a href="user.php"><i class="fa fa-user"></i></a>
+                <a href="cart.php"><i class="fa fa-shopping-cart"></i></a>
+            </div>
+            </div>
+
+
+            <div class="footer-section">
+                <h3>Sign Up for an Account</h3>
+                <p>Get access to exclusive deals and offers:</p>
+                <a href="sign_up.php" class="signup-button">Sign Up Now</a>
             </div>
 
             <div class="footer-section">
                 <h3>Contact</h3>
-                <p>Email: support@shelveswap.com</p>
+                <p>Email: support@shelfswap.com</p>
                 <p>Phone: (123) 456-7890</p>
+                <div class="social-media">
+                <a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.twitter.com" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram"></i></a>
+            </div>
             </div>
 
-            <div class="footer-section social-media">
-                <a href="https://www.facebook.com" ><i class="fa fa-facebook"></i></a>
-                <a href="https://www.twitter.com" ><i class="fa fa-twitter"></i></a>
-                <a href="https://www.instagram.com" ><i class="fa fa-instagram"></i></a>
-            </div>
+        
 
-            <div class="footer-section user-cart">
-                <a href="user.php"><i class="fa fa-user"></i></a>
-                <a href="cart.php"><i class="fa fa-shopping-cart"></i></a>
-            </div>
+            
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 ShelfSwap. All Rights Reserved.</p>
+            <p>Terms and Conditions</a> | Privacy Policy</a></p>
         </div>
 
         <div class="scroll-to-top" id="scrollToTop">
