@@ -108,6 +108,17 @@
             cursor: pointer;
             color: #ccc;
         }
+        /* Default state: Hamburger icon (bars) */
+        .icon i.fa-bars {
+            font-size: 40px;
+            color: #264653; /* Adjust the color as needed */
+        }
+
+        /* Active state: X icon */
+        .icon i.fa-times {
+            font-size: 40px;
+            color: #264653; /* Adjust the color as needed */
+        }
 
 
         .search-icon i {
@@ -136,6 +147,7 @@
         .navbar li a.active {
             color: #F4A261; 
         }
+
 
         @media (max-width: 1000px) {
             .menu li {
@@ -244,7 +256,7 @@
             </div>
             </div>
             <a href="javascript:void(0);" class="icon" onclick="toggleMenu()" style="text-decoration: none;">
-                 <i class="fa fa-bars"></i>
+                 <i class="fa fa-bars" id="menuIcon"></i>
             </a>
             
         </ul>
@@ -253,7 +265,18 @@
     <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
+            const menuIcon = document.getElementById('menuIcon');
+    
             menu.classList.toggle('visible');
+        
+            // Toggle between bars and X icon
+            if (menu.classList.contains('visible')) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            } else {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
         }
     
     </script>
