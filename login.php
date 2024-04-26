@@ -40,20 +40,10 @@
     include 'header.php';
 ?>
 
-<h1>Create an Account</h1>
+<h1>Login to Your Account</h1>
 
-<form id="registrationForm" method="get" action="process-new-user.php" onsubmit="return validateForm()">
+<form id="registrationForm" method="get" action="login-process.php" onsubmit="return validateForm()">
 <div class="user-enter">
-    
-    <div class="entry-box">
-    <label for="first_name">First Name:</label>
-    <input type="text" id="first_name" name="first_name">
-    </div>
-
-    <div class="entry-box">
-    <label for="last_name">Last Name:</label>
-    <input type="text" id="last_name" name="last_name">
-    </div>
 
     <div class="entry-box">
     <label for="email">Email:</label>
@@ -71,18 +61,11 @@
 
 <script>
 function validateForm() {
-    var firstName = document.getElementById("first_name").value;
-    var lastName = document.getElementById("last_name").value;
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
 
-    if (firstName === '' || lastName === '' || email === '' || password === '') {
+    if (email === '' || password === '') {
         alert("Please fill out all fields.");
-        return false;
-    }
-
-    if (password.length < 8 || !/[A-Z]/.test(password) || !/[a-z]/.test(password) || !/[^a-zA-Z]/.test(password)) {
-        alert("Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one non-letter character.");
         return false;
     }
 

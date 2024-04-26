@@ -3,12 +3,12 @@ ob_start(); // Start output buffering
 include 'header.php'; // Include your header file
 
 if(isset($_POST['new_user'])) {
-    // New User button is clicked
-    header("Location: create-user.php");
+    header("Location: new-user.php");
+    exit; 
+}
+elseif(isset($_POST['returning_user'])) {
+    header("Location: login.php");
     exit; // Ensure that no other output is sent
-} elseif(isset($_POST['returning_user'])) {
-    // Returning User button is clicked
-    $welcome_message = "Welcome back, returning user!";
 }
 ob_end_flush(); // Flush the output buffer
 ?>
@@ -24,11 +24,5 @@ ob_end_flush(); // Flush the output buffer
         <input type="submit" name="returning_user" value="Returning User">
     </form>
 
-    <?php
-    // Display the welcome message if set
-    if(isset($welcome_message)) {
-        echo "<p>$welcome_message</p>";
-    }
-    ?>
 </body>
 </html>
