@@ -22,6 +22,8 @@
     color: #264653;
     letter-spacing: 5px;
 }
-body {
+
+.entry-box {
     font-family: SourceSerif;
+    letter-spacing: 5px;
 }

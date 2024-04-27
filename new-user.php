@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>User Registration</title>
+    <link rel="stylesheet" type = "text/css" href= "style.css">
 
 <style>
 
@@ -40,7 +41,7 @@
     include 'header.php';
 ?>
 
-<h1>Create an Account</h1>
+<h1 class="page_title">Create an Account</h1>
 
 <form id="registrationForm" method="get" action="new-user-process.php" onsubmit="return validateForm()">
 <div class="user-enter">
