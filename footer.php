@@ -94,7 +94,7 @@
                 <ul>
                     <li><a href="browse.php">Browse</a></li>
                     <li><a href="sell_book.php">Sell</a></li>
-                    <li><a href="about_us.html">About</a></li>
+                    <li><a href="about.php">About</a></li>
                 </ul>
                  <div class="user-cart">
                 <a href="user.php"><i class="fa fa-user"></i></a>
@@ -106,7 +106,7 @@
             <div class="footer-section">
                 <h3>Sign Up for an Account</h3>
                 <p>Get access to exclusive deals and offers:</p>
-                <a href="sign_up.php" class="signup-button">Sign Up Now</a>
+                <a href="new_user.php" class="signup-button">Sign Up Now</a>
             </div>
 
             <div class="footer-section">

@@ -232,7 +232,7 @@
 
             <li><a href="browse.php">Browse</a></li>
             <li><a href="sell_book.php">Sell</a></li>
-            <li><a href="about_us.html">About</a></li>
+            <li><a href="about.php">About</a></li>
             <li class="search-container">
                 <div class="search-box">
                     <input type="text" placeholder="Search Title, Author, Keyword, or ISBN" size="40">
