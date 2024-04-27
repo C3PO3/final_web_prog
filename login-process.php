@@ -39,23 +39,23 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         echo "<script>window.location.href = 'login.php';</script>"; // Redirect back to login
         exit; // Stop further execution of the script
     } else {
+        // Fetch the password from the result set
+        $row = $result->fetch_assoc();
+        $stored_password = $row['password'];
 
-        $check_password = "SELECT password FROM users WHERE LOWER(email) = '$email'";
-
-        if ($check_password == $passwordin) {
+        // Check if the provided password matches the stored password
+        if ($stored_password === $passwordin) {
             echo "Welcome Back!";
         } else {
             echo "Incorrect Password";
         }
-        
-        // Close statement
-        $stmt->close();
     }
 }
 
 // Close connection
 $conn->close();
 ?>
+
 
 
 </body>
