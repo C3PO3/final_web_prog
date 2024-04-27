@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'OswaldBold';
+    src: url('fonts/Oswald-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'SourceSerif';
+    src: url('fonts/SourceSerif4-VariableFont_opsz,wght.ttf');
+}
+
+@font-face {
+    font-family: 'SourceSerif';
+    src: url('fonts/SourceSerif4-Italic-VariableFont_opsz,wght.ttf');
+    font-style: italic;
+}
+
+.page_title {
+    font-weight: normal;
+    font-size: 2em;
+    font-family: OswaldBold;
+    text-align: center;
+    color: #264653;
+    letter-spacing: 5px;
+}
