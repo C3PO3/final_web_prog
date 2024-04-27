@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $check_email_query = "SELECT * FROM users WHERE LOWER(email) = '$email'";
     $result = $conn->query($check_email_query);
 
-    if ($result->num_rows > 0) {
+    if ($result->num_rows < 1) {
         echo "<script>alert('No Account Associates with that email');</script>";
         echo "<script>window.location.href = 'login.php';</script>"; // Redirect back to login
         exit; // Stop further execution of the script
