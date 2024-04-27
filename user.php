@@ -17,6 +17,7 @@ ob_end_flush(); // Flush the output buffer
 <html>
 <head>
     <title>Redirect Example</title>
+    <link rel="stylesheet" type = "text/css" href= "style.css">
 </head>
 <body>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
