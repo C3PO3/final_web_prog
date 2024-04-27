@@ -23,6 +23,10 @@
     letter-spacing: 5px;
 }
 
+body {
+    font-family: SourceSerif;
+}
+
 .entry-box {
     font-family: SourceSerif;
     letter-spacing: 5px;
