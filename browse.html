@@ -7,198 +7,22 @@
         <link rel="stylesheet" href="style.css" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
         </script>
-        <style>
-            .book {
-                display: inline-block;
-                width: 200px;
-                height: auto;
-                margin: 0 40px 20px 40px;
-                align-items: center;
-                text-align: center;
-                font-family: SourceSerif;
-                color: #000000;
-            }
-
-            .book h2 {
-                font-family: SourceSerif;
-                font-size: 18px;
-                font-weight: normal;
-                margin-top: 24px;
-            }
-
-            .book img {
-                width: 200px;
-                height: 300px;
-                object-fit: cover;
-                border-radius: 8px;
-                margin-bottom: 0;
-            }
-
-            .book img:hover {
-                width: 190px;
-                height: 290px;
-                padding: 5px;
-                object-fit: cover;
-                cursor: pointer;
-                border-radius: 10px;
-            }
-
-            .books-container {
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-                height: auto;
-                width: 80%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .price {
-                font-family: SourceSerif;
-                font-size: 16px;
-                font-weight: normal;
-                margin: 0;
-                float: left;
-            }
-
-            .author {
-                font-family: SourceSerif;
-                font-size: 16px;
-                font-weight: normal;
-                margin: 0;
-                float: right;
-                font-style: italic;
-            }
-
-            .modal {
-                position: fixed; 
-                z-index: 1;
-                left: 0;
-                top: 0;
-                width: 100%; 
-                height: 100%; 
-                overflow: auto; 
-                background-color: rgb(0,0,0); 
-                background-color: rgba(0,0,0,0.6);
-            }
-
-        </style>
     <body>
-        <script>
-            // PLACEHOLDER FOR DB COLUMNS
-            let book_ids = ["pLpHEAAAQBAJ", "wrOQLV6xB-wC", "18OYEAAAQBAJ",
-            "KbZ9EAAAQBAJ", "vrpPEAAAQBAJ", "rKqWzgEACAAJ", "e_9MDwAAQBAJ",
-            "s1gVAAAAYAAJ", "w7ntzgEACAAJ", "uGhUzQEACAAJ" ];
-
-            const url = "https://www.googleapis.com/books/v1/volumes/";
-
-            function showBooks() {
-                booksContainer = document.getElementById('container');
-                for (let i = 0; i < book_ids.length; i++) {
-                    const id = book_ids[i];
-                    getBookById(id, function(info) {
-                        // Create a div to contain the book
-                        const bookElement = document.createElement('div');
-                        bookElement.classList.add('book');
-                        bookElement.id = id;
-
-                        // Set the author of the book
-                        const authorElement = document.createElement('span');
-                        authorElement.classList.add('author');
-                        const authors = info.authors ? info.authors.map(author => {
-                            const names = author.split(' ');
-                            return names[names.length - 1];
-                        }).join(', ') : 'Unknown';
-                        authorElement.textContent = `${authors}`;
-
-                        // Set the price of the book
-                        const priceElement = document.createElement('span');
-                        priceElement.classList.add('price');
-                        priceElement.textContent = "$10.00";
-                        
-                        // Set the title of the book using an h2 header
-                        const titleElement = document.createElement('h2');
-                        titleElement.textContent = info.title;
-                        
-                        // Add the cover image of the book to the class
-                        const coverImage = document.createElement('img');
-                        coverImage.src = info.imageLinks.small ||
-                            info.imageLinks.thumbnail;
-                        coverImage.alt = info.title;
-
-                        // Create a break element
-                        const br = document.createElement('br');
-
-                        // Add each of the elements to the book
-                        bookElement.appendChild(coverImage);
-                        bookElement.appendChild(priceElement);
-                        bookElement.appendChild(authorElement);
-                        bookElement.appendChild(titleElement);
-                        booksContainer.appendChild(bookElement);
-                    });
-                }
-            }
-
-        // Function to retrieve book data from Google Books API based on id
-        function getBookById(volumeId, callback) {
-            const url = "https://www.googleapis.com/books/v1/volumes/" + volumeId;
-
-            const req = new XMLHttpRequest();
-            req.open("GET", url, true);
-
-            req.onreadystatechange = function () {
-                if (req.readyState === 4) {
-                    if (req.status === 200) {
-                        const data = JSON.parse(req.responseText);
-                        if (data.error) {
-                            console.error("Error:", data.error.message);
-                            return;
-                        }
-
-                        const volumeInfo = data.volumeInfo || {};
-                        callback(volumeInfo);
-                    } else {
-                        console.error("Error:", req.status);
-                    }
-                }
-            };
-            req.send();
-        }
-
-        // Create a window popup that displays more information about each
-            // book when its image is clicked
-        $(".book img").click(function() {
-            var bookId = "#" + $(this).closest('.book').attr('id');
-            title = $(bookId).data("title");
-            author = $(bookId).data("author");
-            description = $(bookId).data("description");
-            cover = $(bookId).data("cover"); 
-            IBSN = $(bookId).data("IBSN"); 
-            qty = $(bookId).data("qty"); 
-            price = $(bookId).data("price"); 
-
-            $("#modalTitle").text(title);
-            $("#modalDescription").html(description);
-            $("#modalAuthor").html(author);
-            $("#modalCover").html(`<img src="${cover}" alt="Book Cover">`);
-            $("#modalIBSN").html("IBSN: " + IBSN);
-            $("#modalQty").html("Qty in stock: " + qty);
-            $("#modalPrice").html(price);
-
-            $("#bookModal").show();
-            $("body").css("overflow", "hidden");
-        });
-        
-        </script>
         <div class="page_title">
             <h1>BROWSE</h1>
         </div>
         <div class="books-container" id="container">
-            <script>
-                showBooks();
-            </script>
+
         </div>
-
-
+        <div class="modal" id="bookModal">
+            <span class="close" style="display: block;">&times;</span>
+        </div>
+        <script>
+            // PLACEHOLDER FOR DB COLUMNS
+            let book_ids = ["pLpHEAAAQBAJ", "wrOQLV6xB-wC", "18OYEAAAQBAJ",
+            "KbZ9EAAAQBAJ", "vrpPEAAAQBAJ", "rKqWzgEACAAJ", "e_9MDwAAQBAJ",
+            "s1gVAAAAYAAJ", "w7ntzgEACAAJ", "rWXRDwAAQBAJ" ];
+        </script>
+        <script src="displaybooks.js"></script>
     </body>
 </html>
