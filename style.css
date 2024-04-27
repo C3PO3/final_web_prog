@@ -22,3 +22,52 @@
     color: #264653;
     letter-spacing: 5px;
 }
+
+body {
+    font-family: SourceSerif;
+}
+
+h2 {
+    font-family: OswaldBold;
+}
+
+.entry-box {
+    font-family: SourceSerif;
+    letter-spacing: 5px;
+}
+
+.book img:hover {
+    width: 190px;
+    height: 290px;
+    padding: 5px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.books-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: auto;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.price {
+    font-family: SourceSerif;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+    float: left;
+}
+
+.author {
+    font-family: SourceSerif;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+    float: right;
+    font-style: italic;
+}
