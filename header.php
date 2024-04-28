@@ -243,7 +243,7 @@
             </li>
             <div class="user-cart-container">
                 <li class="cart"><a href="cart.php"><i class="fa fa-shopping-cart"></i></a></li>
-                <li class="user"><a href="user.php"><i class="fa fa-user"></i></a></li>
+                <li class="user"><a href="login.php"><i class="fa fa-user"></i></a></li>
             </div>
             </div>
             <a href="javascript:void(0);" class="icon" onclick="toggleMenu()" style="text-decoration: none;">

@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 $conn->close();
 ?>
 
-
+<?php include 'footer.php'; ?>
 
 </body>
 </html>

@@ -106,7 +106,7 @@
             <div class="footer-section">
                 <h3>Sign Up for an Account</h3>
                 <p>Get access to exclusive deals and offers:</p>
-                <a href="new_user.php" class="signup-button">Sign Up Now</a>
+                <a href="new-user.php" class="signup-button">Sign Up Now</a>
             </div>
 
             <div class="footer-section">

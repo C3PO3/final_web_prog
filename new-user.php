@@ -24,13 +24,41 @@
         width: 300px;
     }
 
-    #button {
+    .button {
         display: block;
+        font-family: SourceSerif;
+        font-size: 35px;
         margin: auto;
         margin-top: 20px;
-        font-size: 45px;
+        margin-bottom: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        border: 1px, solid, #E76F51;
         height: auto;
-        width: auto;
+        text-align: center;
+    }
+
+    .button:hover {
+        background-color: #e1e1e1;
+    }
+
+    #inputs {
+        margin: auto;
+        width: 800px;
+    }
+
+    td {
+        width: 50%;
+    }
+
+    label {
+        text-align: right;
+        margin-right: 10px;
+    }
+
+    input[type="text"] {
+        text-align: left;
+        margin-left: 10px;
     }
 
 </style>
@@ -44,30 +72,30 @@
 <h1 class="page_title">Create an Account</h1>
 
 <form id="registrationForm" method="get" action="new-user-process.php" onsubmit="return validateForm()">
-<div class="user-enter">
-    
-    <div class="entry-box">
-    <label for="first_name">First Name:</label>
-    <input type="text" id="first_name" name="first_name">
-    </div>
+<table id="inputs">
+    <tr class="entry-box">
+        
+        <th><label for="first_name">First Name:</label></th>
+        <th><input type="text" id="first_name" name="first_name"></th>
+    </tr>
 
-    <div class="entry-box">
-    <label for="last_name">Last Name:</label>
-    <input type="text" id="last_name" name="last_name">
-    </div>
+    <tr class="entry-box">
+    <th><label for="last_name">Last Name:</label></th>
+    <th><input type="text" id="last_name" name="last_name"></th>
+    </tr>
 
-    <div class="entry-box">
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email">
-    </div>
+    <tr class="entry-box">
+    <th><label for="email">Email:</label></th>
+    <th><input type="email" id="email" name="email"></th>
+    </tr>
 
-    <div class="entry-box">
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password">
-    </div>
+    <tr class="entry-box">
+    <th><label for="password">Password:</label></th>
+    <th><input type="password" id="password" name="password"></th>
+    </tr>
 
-    <input type="submit" value="Submit" id="button">
-</div>
+    <input type="submit" value="Create Account" class="button">
+</table>
 </form>
 
 <script>
@@ -90,6 +118,8 @@ function validateForm() {
     return true;
 }
 </script>
+
+<?php include 'footer.php'; ?>
 
 </body>
 </html>

@@ -48,11 +48,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         // Execute the statement
         if ($stmt->execute()) {
-            echo "<h2>User data has been saved:</h2>";
-            echo "<p>First Name: $first_name</p>";
-            echo "<p>Last Name: $last_name</p>";
-            echo "<p>Email: $email</p>";
-            echo "<p>Password: $password</p>";
+            echo "<p>Welcome to ShelfSwap $first_name!</p>";
+
+            echo "<h2>Lets Get started</h2>";
+
+            echo '<a href="browse.php"><button class="button">Browse our Collection</button></a>';
+            echo '<a href="sell.php"><button class="button">Sell your books</button></a>';
+            
         } else {
             echo "Error: " . $stmt->error;
         }
@@ -64,7 +66,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 // Close connection
 $conn->close();
+
+
 ?>
+
+<?php include 'footer.php'; ?>
 
 
 </body>

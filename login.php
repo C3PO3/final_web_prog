@@ -56,7 +56,7 @@
     <input type="password" id="password" name="password">
     </div>
 
-    <input type="submit" value="Submit" id="button">
+    <input type="submit" value="Submit" id="button"  class="button">
 </div>
 </form>
 
@@ -73,6 +73,8 @@ function validateForm() {
     return true;
 }
 </script>
+
+<?php include 'footer.php'; ?>
 
 </body>
 </html>

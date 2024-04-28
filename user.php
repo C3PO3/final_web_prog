@@ -21,9 +21,12 @@ ob_end_flush(); // Flush the output buffer
 </head>
 <body>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <input type="submit" name="new_user" value="New User">
-        <input type="submit" name="returning_user" value="Returning User">
+        <input type="submit" name="new_user" value="New User"  class="button">
+        <input type="submit" name="returning_user" value="Returning User" class="button">
     </form>
+
+    <?php include 'footer.php'; ?>
 
 </body>
 </html>
+
