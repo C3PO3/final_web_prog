@@ -1,4 +1,5 @@
 <?php
+    echo "<h1>BROWSE</h1>";
     // Database connection parameters
     $servername = "localhost";
     $username = "u5rikrp6bcxpf";
@@ -22,12 +23,12 @@
         while($row = $result->fetch_assoc()) {
             // Display book information
             echo "<div class='book'>";
+            echo "<img src='" . $row['image'] . "' class='bookImage'>";
             echo "<div class='title'>Title: " . $row['title'] . "</div>";
             echo "<div class='author'>Author: " . $row['author'] . "</div>";
             echo "<div class='description'>Description: " . $row['description'] . "</div>";
             echo "<div class='quality'>Quality: " . $row['quality'] . "</div>";
             echo "<div class='price'>Price: " . $row['price'] . "</div>";
-            echo "<img src='" . $row['image'] . "' class='bookImage'>";
             echo "</div>";
         }
     } else {
@@ -45,8 +46,4 @@
         <style type=text/css>
         </style>
     </head>
-    <body>
-    <h1>BROWSE</h1>
-    
-    </body>
 </html>
