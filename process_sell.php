@@ -10,6 +10,8 @@
     function get_book_data($url) {
         $result = file_get_contents($url); // Fetch data from the URL
         $data = json_decode($result, true); // Decode JSON data
+        $quality = $_GET["quality"];
+        $price = $_GET["price"];
 
         // Loop through the items and display book information
         foreach ($data['items'] as $item) {
@@ -17,7 +19,7 @@
             if (isset($volumeInfo['title']) && isset($volumeInfo['publishedDate'])) {
                 $isbn = isset($volumeInfo['industryIdentifiers']) && count($volumeInfo['industryIdentifiers']) > 0 ? $volumeInfo['industryIdentifiers'][0]['identifier'] : "unknown";
 
-                $bookDiv = "<div class='book' onclick=\"window.location.href='next_page.php?isbn=$isbn';\">";
+                $bookDiv = "<div class='book' onclick=\"window.location.href='submitted_book.php?isbn=$isbn&quality=$quality&price=$price';\">";
                 $titleDiv = "<div class='title'>Title: " . $volumeInfo['title'] . "</div>";
                 $authorDiv = isset($volumeInfo['authors']) ? "<div class='author'>Author: " . implode(", ", $volumeInfo['authors']) . "</div>" : "<div class='author'>Author: unknown</div>";
                 $pubDiv = "<div class='pubDiv'>Published first in: " . $volumeInfo['publishedDate'] . "</div>";
@@ -46,16 +48,7 @@
         return $new_url;
     }
 
-    // $servername = "localhost";
-    // $username = "u5rikrp6bcxpf";
-    // $password = "passtest2233";
-    // $dbname = "dbseizae2lm8vt";
-
-    // $conn = new mysqli($servername, $username, $password, $dbname);
-
     $searchTerm = $_GET["book_name"];
-    $quality = $_GET["quality"];
-    $price = $_GET["price"];
 
     echo "<h1>Select the correct book by clicking the cover image: </h1>";
 
