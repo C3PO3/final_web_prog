@@ -97,7 +97,7 @@
                     <li><a href="about.php">About</a></li>
                 </ul>
                  <div class="user-cart">
-                <a href="user.php"><i class="fa fa-user"></i></a>
+                <a href="login.php"><i class="fa fa-user"></i></a>
                 <a href="cart.php"><i class="fa fa-shopping-cart"></i></a>
             </div>
             </div>
