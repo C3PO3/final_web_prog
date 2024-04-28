@@ -18,21 +18,25 @@
             $volumeInfo = $item['volumeInfo'];
             if (isset($volumeInfo['title']) && isset($volumeInfo['publishedDate'])) {
                 $isbn = isset($volumeInfo['industryIdentifiers']) && count($volumeInfo['industryIdentifiers']) > 0 ? $volumeInfo['industryIdentifiers'][0]['identifier'] : "unknown";
+                $title = $volumeInfo['title'];
+                $author = isset($volumeInfo['authors']) ? implode(", ", $volumeInfo['authors']) : "Unknown";
+                $description = isset($volumeInfo['description']) ? $volumeInfo['description'] : "Description not available";
+                $image = isset($volumeInfo['imageLinks']['thumbnail']) ? $volumeInfo['imageLinks']['thumbnail'] : "Image not available";
 
-                $bookDiv = "<div class='book' onclick=\"window.location.href='submitted_book.php?isbn=$isbn&quality=$quality&price=$price';\">";
-                $titleDiv = "<div class='title'>Title: " . $volumeInfo['title'] . "</div>";
-                $authorDiv = isset($volumeInfo['authors']) ? "<div class='author'>Author: " . implode(", ", $volumeInfo['authors']) . "</div>" : "<div class='author'>Author: unknown</div>";
+                $bookDiv = "<div class='book' onclick=\"window.location.href='submitted_book.php?isbn=$isbn&quality=$quality&price=$price&title=".urlencode($title)."&author=".urlencode($author)."&description=".urlencode($description)."&image=".urlencode($image)."';\">";
+                $titleDiv = "<div class='title'>Title: $title</div>";
+                $authorDiv = "<div class='author'>Author: $author</div>";
                 $pubDiv = "<div class='pubDiv'>Published first in: " . $volumeInfo['publishedDate'] . "</div>";
                 $isbnDiv = "<div class='isbn'>ISBN: $isbn</div>"; // Display ISBN
-                $description = isset($volumeInfo['description']) ? "<div class='description'>Description: " . $volumeInfo['description'] . "</div>" : "";
+                $descriptionDiv = "<div class='description'>Description: $description</div>";
 
                 // Adding book image if available
                 if (isset($volumeInfo['imageLinks'])) {
-                    $imageDiv = "<img src='" . $volumeInfo['imageLinks']['thumbnail'] . "' class='bookImage'>";
+                    $imageDiv = "<img src='$image' class='bookImage'>";
                     $bookDiv .= $imageDiv;
                 }
 
-                $bookDiv .= $titleDiv . $authorDiv . $pubDiv . $isbnDiv . $description . "</div>";
+                $bookDiv .= $titleDiv . $authorDiv . $pubDiv . $isbnDiv . $descriptionDiv . "</div>";
                 echo $bookDiv;
             }
         }
