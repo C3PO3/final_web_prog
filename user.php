@@ -222,8 +222,8 @@
             </tr>
 
             <tr class="entry-box">
-                <td class="lable-td"><label for="email" class="labels">Email:</label></td>
-                <td class="box-td"><input type="email" id="email" name="email" class="box"></td>
+                <td class="lable-td"><label for="username" class="labels">username:</label></td>
+                <td class="box-td"><input type="username" id="username" name="username" class="box"></td>
             </tr>
 
             <tr class="entry-box">
@@ -243,8 +243,8 @@
     <form id="returningForm" method="POST" action="login-process.php" onsubmit="return validateReturningForm()">
     <table class="input-table">
         <tr class="entry-box">
-            <td class="lable-td"><label for="email" class="labels">Email:</label></td>
-            <td class="box-td"><input type="email" id="returning-email" name="email" class="box"></td>
+            <td class="lable-td"><label for="username" class="labels">username:</label></td>
+            <td class="box-td"><input type="username" id="returning-username" name="username" class="box"></td>
         </tr>
 
         <tr class="entry-box">
@@ -284,10 +284,10 @@
         function validateNewForm() {
             var firstName = document.getElementById("first_name").value;
             var lastName = document.getElementById("last_name").value;
-            var email = document.getElementById("email").value;
+            var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
 
-            if (firstName === '' || lastName === '' || email === '' || password === '') {
+            if (firstName === '' || lastName === '' || username === '' || password === '') {
                 alert("Please fill out all fields.");
                 return false;
             }
@@ -301,10 +301,10 @@
         }
 
         function validateReturningForm() {
-            var remail = document.getElementById("returning-email").value;
+            var rusername = document.getElementById("returning-username").value;
             var rpassword = document.getElementById("returning-password").value;
 
-            if (remail === '' || rpassword === '') {
+            if (rusername === '' || rpassword === '') {
                 alert("Please fill out all fields.");
                 return false;
             }

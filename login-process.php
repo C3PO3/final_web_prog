@@ -41,9 +41,9 @@ include 'header.php';
 
 // Your database connection code
 $servername = "localhost";
-$username = "ugqlb33ihnf35";
-$password = "magann2020";
-$database = "dbed2glfukjapi";
+$username = "uxv8sl1ts3vhy";
+$password = "1*@El&1_68&l";
+$dbname = "dbikb3jnjnetbs";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
@@ -55,15 +55,15 @@ if ($conn->connect_error) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect form data
-    $email = isset($_POST['email']) ? $_POST['email'] : '';
+    $username = isset($_POST['username']) ? $_POST['username'] : '';
     $passwordin = isset($_POST['password']) ? $_POST['password'] : '';
 
-    // Convert email to lowercase for case-insensitive comparison
-    $email = strtolower($email);
+    // Convert username to lowercase for case-insensitive comparison
+    $username = strtolower($username);
 
-    // Check if email already exists in the database (case-insensitive)
-    $check_email_query = "SELECT * FROM users WHERE LOWER(email) = '$email'";
-    $result = $conn->query($check_email_query);
+    // Check if username already exists in the database (case-insensitive)
+    $check_username_query = "SELECT * FROM users WHERE LOWER(email) = '$username'";
+    $result = $conn->query($check_username_query);
 
     if ($result->num_rows < 1) {
         echo "<script>alert('No Account Associates with that email');</script>";
