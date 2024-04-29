@@ -82,8 +82,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ?>
             <h2 class="page_title">Lets Get Started</h2>
 
-            <a href="browse.php"><button class="button">Browse our Collection</button></a>
-            <a href="sell_book.php"><button class="button">Sell your books</button></a>
+            <a href="browse.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>"><button class="button">Browse our Collection</button></a>
+            <a href="sell_book.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>"><button class="button">Sell your books</button></a>
             <?
             
         } else {

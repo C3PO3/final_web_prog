@@ -9,6 +9,9 @@
         <?php include 'header.php'; ?>
         <meta charset="utf-8">
         <style type=text/css>
+            .box-td {
+                padding-left: 10px;
+            }
             .quality-container {
                 display: flex;
                 justify-content: space-around;
@@ -34,6 +37,49 @@
             }
             .selected {
                 border-color: #E76F51;
+            }
+            /* new stuff */
+            .input-table {
+                margin: auto;
+            }
+
+            .lable-td {
+                padding-right: 10px;
+                text-align: right;
+                align-items: right;
+            }
+
+            .labels {
+                font-family: SourceSerif;
+                font-size: 30px;
+                text-align: right;
+                align-items: right;
+            }
+
+            .button-row {
+                margin: auto;
+                padding-top: 15px;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .input-button {
+                font-family: SourceSerif;
+                font-size: 30px;
+                background-color: #ffffff;
+                border: 1px, solid, #000000;
+                border-radius: 5px;
+                text-align: center;
+                margin: auto 0;
+            }
+
+            .input-button:hover {
+                background-color: #e1e1e1;
+            }
+
+            .box {
+                height: 30px;
+                width: 200px;
             }
         </style>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -63,11 +109,13 @@
         </script>
     </head>
     <body>
-        <div class="page_title"><h1>Enter Book Details</h1>
-        <form action="process_sell.php" method="get" id="sell_book">
-            <label for="book_name">Book Name:</label><br>
-            <input type="text" id="book_name" name="book_name" required><br><br>
+        <div class="page_title"><h1>Enter Book Details</h1></div>
 
+        <form action="process_sell.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>" method="get" id="sell_book">
+            <td class="lable-td"><label for="book_name" class="labels">Book Name:</label></td>
+            <td class="box-td"><input type="text" id="book_name" name="book_name" class="box" required></td>
+
+            <br><br><br><br>
             <div class="quality-container">
                 <div class="quality-option" onclick="setQuality('poor')">Poor</div>
                 <div class="quality-option" onclick="setQuality('well_loved')">Well Loved</div>
@@ -76,11 +124,17 @@
                 <div class="quality-option" onclick="setQuality('brand_new')">Brand New</div>
                 <input type="hidden" id="quality" name="quality" required>
             </div>
+            <br>
 
-            <label for="price">Price:</label><br>
-            <input type="number" id="price" name="price" step="0.01" required><br><br>
+            <td class="lable-td"><label for="price" class="labels">Price:</label></td>
+            <td class="box-td"><input type="number" id="price" name="price" step="0.01" class="box" required></td>
 
-            <input type="submit" value="Submit" id = "submit_sell">
+            <br><br>
+            <tr>
+                <td colspan="2" class="button-row">
+                    <input type="submit" value="Submit" id = "submit_sell" class="input-button">
+                </td>
+            </tr>
         </form>
         <?php include 'footer.php'; ?>
     </body>
