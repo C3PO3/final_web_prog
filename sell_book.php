@@ -1,14 +1,13 @@
-
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
         <title>Sell Book - ShelfSwap</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type = "text/css" href= "style.css">
         <?php include 'header.php'; ?>
-        <meta charset="utf-8">
-        <style type=text/css>
+
+        <style>
             
             .quality-container {
                 display: flex;
@@ -34,15 +33,15 @@
             }
 
             .quality-option.selected {
-                font-weight: bold; /* Example styling for selected option */
+                font-weight: bold;
             }
             .quality-option.selected {
-                background-color: #E76F51; /* Selected background color */
-                color: #fff; /* Text color for selected state */
+                background-color: #E76F51; 
+                color: #fff; 
             }
 
             .quality-option:hover {
-                background-color: #ddd; /* Hover background color */
+                background-color: #e1e1e1;
             }   
             
             .quality-container input[type="radio"] {
