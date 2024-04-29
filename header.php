@@ -53,7 +53,6 @@
 
         .navbar li.logo img {
             max-width:300px !important;
-
         }
 
         .navbar li a {
@@ -225,7 +224,7 @@
                 <li><a href="sell_book.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>">Sell</a></li>
                 <li><a href="about.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>">About</a></li>
                 <li class="search-container">
-                    <form id="searchForm" action="browse.php" method="GET">
+                    <form id="searchForm" action="browse.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>" method="GET">
                         <div class="search-box">
                             <input id="searchInput" type="text" name="query" placeholder="Search Title, Author, Keyword, or ISBN" size="40">
                             <button type="submit" class="search-icon">
@@ -275,10 +274,8 @@
 
         document.getElementById('searchForm').addEventListener('submit', function(event) {
             const searchInput = document.getElementById('searchInput').value;
-            const formAction = "browse.php?query=" + encodeURIComponent(searchInput);
-            if (isset($_GET['username'])) {
-                formAction += "&username=" + htmlspecialchars($_GET['username']);
-            }
+            let formAction = document.getElementById('searchForm').action + "&query=" + encodeURIComponent(searchInput);
+
             document.getElementById('searchForm').action = formAction;
         });
     </script>
