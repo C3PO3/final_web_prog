@@ -97,7 +97,7 @@
                     <li><a href="about.php">About</a></li>
                 </ul>
                  <div class="user-cart">
-                <a href="login.php"><i class="fa fa-user"></i></a>
+                <a href="user.php"><i class="fa fa-user"></i></a>
                 <a href="cart.php"><i class="fa fa-shopping-cart"></i></a>
             </div>
             </div>
@@ -106,7 +106,7 @@
             <div class="footer-section">
                 <h3>Sign Up for an Account</h3>
                 <p>Get access to exclusive deals and offers:</p>
-                <a href="new-user.php" class="signup-button">Sign Up Now</a>
+                <a href="user.php" class="signup-button">Sign Up Now</a>
             </div>
 
             <div class="footer-section">

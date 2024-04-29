@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stored_password === $passwordin) {
             echo "<h1 class='page_title'>Welcome Back $name!</h1>";
             ?>
-            <h2 class="page_title">Lets Get Started</h2>
+            <div class="page_title"><h2>Lets Get Started</h2></div>
 
             <a href="browse.php"><button class="button">Browse our Collection</button></a>
             <a href="sell_book.php"><button class="button">Sell your books</button></a>

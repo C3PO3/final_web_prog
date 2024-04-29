@@ -199,7 +199,7 @@
 <body>
     <div id="header"><?php include 'header.php'; ?></div>
 
-    <h1 class="page_title">Login or Sign Up</h1>
+    <div class="page_title"><h1>Login or Sign Up</h1></div>
 
     <!-- Navigation bar with two buttons -->
     <div class="nav-bar">

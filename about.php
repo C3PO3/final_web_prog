@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -5,7 +6,10 @@
     <title>About Us - ShelfSwap</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type = "text/css" href= "style.css">
-    <?php include 'header.php'; ?>
+
+    <?php
+        include 'header.php';
+    ?>
     <style>
 
 
@@ -134,7 +138,7 @@
 </head>
 
 <body>
-    <h1 class="page_title">About Us</h1>
+    <div class="page_title"><h1>About Us</h1></div>
 
     <!-- Navigation bar with two buttons -->
     <div class="nav-bar">

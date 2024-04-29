@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Execute the statement
         if ($stmt->execute()) {
             
-            echo "<h1 class='page_title'>Welcome to ShelfSwap $first_name!</h1>";
+            echo "<div class='page_title'><h1>Welcome to ShelfSwap $first_name!</h1></div>";
             ?>
             <h2 class="page_title">Lets Get Started</h2>
 
