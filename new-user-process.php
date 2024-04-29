@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     if ($result->num_rows > 0) {
         echo "<script>alert('Email already exists in the database. Please use a different email.');</script>";
-        echo "<script>window.location.href = 'new-user.php';</script>"; // Redirect back to create user page
+        echo "<script>window.location.href = 'user.php';</script>"; // Redirect back to create user page
         exit; // Stop further execution of the script
     } else {
         // Prepare and bind SQL statement
