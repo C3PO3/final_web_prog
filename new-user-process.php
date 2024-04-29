@@ -56,24 +56,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect form data
     $first_name = isset($_POST['first_name']) ? $_POST['first_name'] : '';
     $last_name = isset($_POST['last_name']) ? $_POST['last_name'] : '';
-    $email = isset($_POST['email']) ? $_POST['email'] : '';
+    $username = isset($_POST['username']) ? $_POST['username'] : '';
     $password = isset($_POST['password']) ? $_POST['password'] : '';
 
-    // Convert email to lowercase for case-insensitive comparison
-    $email = strtolower($email);
+    // Convert username to lowercase for case-insensitive comparison
+    $username = strtolower($username);
 
-    // Check if email already exists in the database (case-insensitive)
-    $check_email_query = "SELECT * FROM users WHERE LOWER(email) = '$email'";
-    $result = $conn->query($check_email_query);
+    // Check if username already exists in the database (case-insensitive)
+    $check_username_query = "SELECT * FROM users WHERE LOWER(username) = '$username'";
+    $result = $conn->query($check_username_query);
 
     if ($result->num_rows > 0) {
-        echo "<script>alert('Email already exists in the database. Please use a different email.');</script>";
+        echo "<script>alert('username already exists in the database. Please use a different username.');</script>";
         echo "<script>window.location.href = 'user.php';</script>"; // Redirect back to create user page
         exit; // Stop further execution of the script
     } else {
         // Prepare and bind SQL statement
-        $stmt = $conn->prepare("INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $first_name, $last_name, $email, $password);
+        $stmt = $conn->prepare("INSERT INTO users (first_name, last_name, username, password) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $first_name, $last_name, $username, $password);
 
         // Execute the statement
         if ($stmt->execute()) {
