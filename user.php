@@ -5,9 +5,7 @@
     <title>Login - ShelfSwap</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type = "text/css" href= "style.css">
-    <?php include 'header.php'; ?>
     <style>
-
 
         /* Navigation bar styles */
         .nav-bar {
@@ -38,12 +36,14 @@
         /* Section styles */
         .section {
             display: none;
-            max-width: 800px;
+            max-width: 70%;
+            width: 800px;
             margin: 40px auto;
             padding: 40px;
             background-color: #ffffff;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             border-radius: 15px;
+            
         }
 
         /* Section active */
@@ -112,6 +112,7 @@
         }
 
         table tr {
+            max-width: 20%;
             width: 250px;
             height: 50px;
         }
@@ -122,22 +123,81 @@
         }
 
         /* Media queries for responsiveness */
-        @media (max-width: 768px) {
-            /* Adjust layout for screens with max width of 768px */
-            .returning ul {
-                grid-template-columns: 1fr; /* Show one column for returning section */
-            }
-            .new-content {
-                flex-direction: column; /* Stack new content vertically */
-            }
-            .section img {
-                width: 100%; /* Make images full width */
-            }
+@media (max-width: 768px) {
+    /* Adjust layout for screens with max width of 768px */
+    .nav-bar {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .nav-button {
+        margin: 0 10px;
+        font-size: 20px;
+        padding: 10px 15px;
+    }
+
+    .section {
+        max-width: 90%;
+        width: 100%;
+    }
+
+    .input-table {
+        margin: auto;
+        width: auto;
+    }
+
+    .box-td {
+        display: table-cell;
+        text-align: right;
+        vertical-align: middle;
+    }
+
+    .labels {
+        font-size: 20px;
+    }
+
+    .box {
+        width: 200px;
+    }
+
+    .button-row {
+        text-align: center;
+        margin-top: 10px; /* Add margin to separate button row */
+    }
+
+    .input-button {
+        width: auto;
+        color: #000000;
+        font-family: SourceSerif;
+        font-size: 30px;
+        background-color: #ffffff;
+        border: 1px, solid, #000000;
+        border-radius: 5px;
+        text-align: center;
+        margin: auto 0;
+    }
+
+    table tr {
+        display: table-row;
+        width: auto;
+        margin-bottom: 0;
+    }
+    #header {
+        width: 100%;
+    }
+    #footer {
+        width: 100%;
+    }
 }
+
+
+
     </style>
 </head>
 
 <body>
+    <div id="header"><?php include 'header.php'; ?></div>
+
     <h1 class="page_title">Login or Sign Up</h1>
 
     <!-- Navigation bar with two buttons -->
@@ -253,7 +313,7 @@
 
 </script>
 
-<?php include 'footer.php'; ?>
+<div id="footer"><?php include 'footer.php'; ?></div>
 </body>
 
 </html>
