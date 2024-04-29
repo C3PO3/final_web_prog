@@ -41,9 +41,9 @@ include 'header.php';
 
 // Your database connection code
 $servername = "localhost";
-$username = "ugqlb33ihnf35";
-$password = "magann2020";
-$database = "dbed2glfukjapi";
+$username = "uxv8sl1ts3vhy";
+$password = "1*@El&1_68&l";
+$dbname = "dbikb3jnjnetbs";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
@@ -78,18 +78,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Check if the provided password matches the stored password
         if ($stored_password === $passwordin) {
-            $cookie_name = 'user';
-            $cookie_value = $name;
-            $cookie_expire = time() + (24 * 60 * 60); // 24 hours
-            setcookie($cookie_name, $cookie_value, 864000, "/");
-
-            if(isset($_COOKIE['user'])) {
-                $username = $_COOKIE['user'];
-                echo "Welcome There" . $_COOKIE['user'] . "!";
-            } else {
-                echo "<h2>Cookie 'user' is not set!</h2>";
-            }
-
             echo "<h1 class='page_title'>Welcome Back $name!</h1>";
             ?>
             <h2 class="page_title">Lets Get Started</h2>
