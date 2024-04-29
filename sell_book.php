@@ -1,16 +1,16 @@
-<!DOCTYPE html>
-<html>
 
-<head>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sell Book - ShelfSwap</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type = "text/css" href= "style.css">
         <?php include 'header.php'; ?>
-
-        <style>
+        <meta charset="utf-8">
+        <style type=text/css>
             
             .quality-container {
-                
                 display: flex;
                 justify-content: space-around;
                 margin-bottom: 30px;
@@ -34,15 +34,15 @@
             }
 
             .quality-option.selected {
-                font-weight: bold;
+                font-weight: bold; /* Example styling for selected option */
             }
             .quality-option.selected {
-                background-color: #E76F51; 
-                color: #fff; 
+                background-color: #E76F51; /* Selected background color */
+                color: #fff; /* Text color for selected state */
             }
 
             .quality-option:hover {
-                background-color: #e1e1e1;
+                background-color: #ddd; /* Hover background color */
             }   
             
             .quality-container input[type="radio"] {
@@ -203,16 +203,16 @@
         <div class="page_title"><h1>Enter Book Details</h1></div>
 
         <div action="process_sell.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>" method="get" id="sell_book" class="sect">
-        <form id="newForm" method="POST" action="process_sell.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>" onsubmit="return validateNewForm()">
+        <form id="newForm" method="get" action="process_sell.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>" onsubmit="return validateNewForm()">
             <table class="input-table">
                 <tr class="entry-box">
                     <td class="lable-td"><label for="book_name" class="labels">Book Title:</label></td>
-                    <td class="box-td"><input type="text" id="book_name" name="book_name" class="box"></td>
+                    <td class="box-td"><input type="text" id="book_name" name="book_name" class="box" required></td>
                 </tr>
 
                 <tr class="entry-box">
                     <td class="lable-td"><label for="price" class="labels">Price:</label></td>
-                    <td class="box-td"><input type="text" id="price" name="price" class="box"></td>
+                    <td class="box-td"><input type="text" id="price" name="price" class="box" required></td>
                 </tr>
 
             </table>
@@ -243,6 +243,7 @@
                     <div class="qbutton">
                     <input type="radio" name="quality" id="brand_new" value="brand_new" class="quality-option" onclick="setQuality('brand_new')">
                     <label for="brand_new">Brand New</label></div>
+                    <input type="hidden" id="quality" name="quality" required>
                 </div></td>
                 </tr>
 
