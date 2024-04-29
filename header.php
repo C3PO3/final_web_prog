@@ -219,13 +219,13 @@
 
     <nav>
         <ul class="navbar" id="nav">
-            <li class="logo"><a href="browse.php"><img src="logo.png"></a></li>
+            <li class="logo"><a href="browse.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>"><img src="logo.png"></a></li>
             <div class="menu" id="menu">
                 <li><a href="browse.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>">Browse</a></li>
                 <li><a href="sell_book.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>">Sell</a></li>
                 <li><a href="about.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>">About</a></li>
                 <li class="search-container">
-                    <form id="searchForm" action="browse.php" method="GET">
+                    <form id="searchForm" action="browse.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>" method="GET">
                         <div class="search-box">
                             <input id="searchInput" type="text" name="query" placeholder="Search Title, Author, Keyword, or ISBN" size="40">
                             <button type="submit" class="search-icon">

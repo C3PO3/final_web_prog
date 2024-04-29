@@ -58,7 +58,9 @@
                 while ($row = $result->fetch_assoc()) {
                     // Display book information
                     echo "<div class='book' id='" . $row['id'] . "'>";
-                    echo "<form method='get' action='item.php'>";
+                    ?>
+                    <form method='get' action='item.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>'>";
+                    <?php
                     echo "<input type='image' src='" . $row['image'] . "' class='bookImage' alt='" . $row['title'] . "'/>";
                     echo "<input type='hidden' name='id' value='" . $row['id'] . "'/>";
                     echo "</form>";

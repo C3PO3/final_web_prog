@@ -3,48 +3,17 @@
 <head>
     <title>User Information</title>
     <link rel="stylesheet" type = "text/css" href= "style.css">
-
-    <style>
-
-        h2 {
-            margin-bottom: 50px;
-        }
-
-        .button {
-            display: block;
-            font-family: SourceSerif;
-            font-size: 30px;
-            background-color: #ffffff;
-            border: 1px, solid, #000000;
-            border-radius: 5px;
-            text-align: center;
-            margin: auto;
-            margin-top: 25px;
-            margin-bottom: 25px;
-            width: 310px;
-        }
-
-        .button:hover {
-            background-color: #e1e1e1;
-        }
-
-        a {
-            text-decoration: none;
-            margin: auto;
-        }
-    </style>
 </head>
-<body>
 
+<body>
 <?php
 include 'header.php';
 
-// database connection code
+// Your database connection code
 $servername = "localhost";
 $username = "uxv8sl1ts3vhy";
 $password = "1*@El&1_68&l";
 $database = "dbikb3jnjnetbs";
-
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
 
@@ -66,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $conn->query($check_email_query);
 
     if ($result->num_rows < 1) {
-        echo "<script>alert('No Account Associates with that email');</script>";
+        echo "<script>alert('No Account Associates with that email $email');</script>";
         echo "<script>window.location.href = 'user.php';</script>"; // Redirect back to login
         exit; // Stop further execution of the script
     } else {
@@ -77,13 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Check if the provided password matches the stored password
         if ($stored_password === $passwordin) {
-            echo "<h1 class='page_title'>Welcome Back $name!</h1>";
-            ?>
-            <h2 class="page_title">Lets Get Started</h2>
-
-            <a href="browse.php"><button class="button">Browse our Collection</button></a>
-            <a href="sell_book.php"><button class="button">Sell your books</button></a>
-            <?
+            echo "<div class='page_title'><h1>Welcome Back $name!</h1></div>";
+            echo "<script>setTimeout(function() { window.location.href = 'browse.php?username=" . urlencode($email) . "'; }, 3000);</script>";
         } else {
             echo "<script>alert('Incorrect Password');</script>";
             echo "<script>window.location.href = 'user.php';</script>"; // Redirect back to login
