@@ -122,10 +122,6 @@
             width: 200px;
         }
 
-        a {
-            text-decoration: none;
-            margin: auto;
-        }
 
         /* Media queries for responsiveness */
 @media (max-width: 768px) {
@@ -213,7 +209,7 @@
 
     <!-- new section -->
     <div id="new-section" class="section about-container active">
-    <form id="newForm" method="get" action="new-user-process.php" onsubmit="return validateNewForm()">
+    <form id="newForm" method="POST" action="new-user-process.php" onsubmit="return validateNewForm()">
         <table class="input-table">
             <tr class="entry-box">
                 <td class="lable-td"><label for="first_name" class="labels">First Name:</label></td>
@@ -244,7 +240,7 @@
 
     <!-- returning section -->
 <div id="returning-section" class="section returning">
-    <form id="returningForm" method="get" action="login-process.php" onsubmit="return validateReturningForm()">
+    <form id="returningForm" method="POST" action="login-process.php" onsubmit="return validateReturningForm()">
     <table class="input-table">
         <tr class="entry-box">
             <td class="lable-td"><label for="email" class="labels">Email:</label></td>
