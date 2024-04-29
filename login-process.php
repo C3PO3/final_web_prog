@@ -62,11 +62,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = strtolower($username);
 
     // Check if username already exists in the database (case-insensitive)
-    $check_username_query = "SELECT * FROM users WHERE LOWER(username) = '$username'";
+    $check_username_query = "SELECT * FROM users WHERE LOWER(email) = '$username'";
     $result = $conn->query($check_username_query);
 
     if ($result->num_rows < 1) {
-        echo "<script>alert('No Account Associates with that username');</script>";
+        echo "<script>alert('No Account Associates with that email');</script>";
         echo "<script>window.location.href = 'user.php';</script>"; // Redirect back to login
         exit; // Stop further execution of the script
     } else {

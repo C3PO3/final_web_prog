@@ -63,16 +63,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = strtolower($username);
 
     // Check if username already exists in the database (case-insensitive)
-    $check_username_query = "SELECT * FROM users WHERE LOWER(username) = '$username'";
+    $check_username_query = "SELECT * FROM users WHERE LOWER(email) = '$username'";
     $result = $conn->query($check_username_query);
 
     if ($result->num_rows > 0) {
-        echo "<script>alert('username already exists in the database. Please use a different username.');</script>";
+        echo "<script>alert('email already exists in the database. Please use a different email.');</script>";
         echo "<script>window.location.href = 'user.php';</script>"; // Redirect back to create user page
         exit; // Stop further execution of the script
     } else {
         // Prepare and bind SQL statement
-        $stmt = $conn->prepare("INSERT INTO users (first_name, last_name, username, password) VALUES (?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("ssss", $first_name, $last_name, $username, $password);
 
         // Execute the statement
