@@ -158,7 +158,7 @@
     }
 
     .box {
-        width: 200px;
+        width: 90%;
     }
 
     .button-row {
@@ -208,7 +208,7 @@
     </div>
 
     <!-- new section -->
-    <div id="new-section" class="section about-container active">
+    <div id="new-section" class="section about-container active" class="sect">
     <form id="newForm" method="POST" action="new-user-process.php" onsubmit="return validateNewForm()">
         <table class="input-table">
             <tr class="entry-box">
@@ -239,7 +239,7 @@
     </div>
 
     <!-- returning section -->
-<div id="returning-section" class="section returning">
+<div id="returning-section" class="section returning"  class="sect">
     <form id="returningForm" method="POST" action="login-process.php" onsubmit="return validateReturningForm()">
     <table class="input-table">
         <tr class="entry-box">
