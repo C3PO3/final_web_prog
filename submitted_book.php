@@ -51,7 +51,7 @@
     $sql = "INSERT INTO Books (ISBN, quality, price, title, author, description, image, publisher, publishedDate) VALUES ('$isbn', '$quality', '$price', '$title', '$author', '$description', '$image', '$pub', '$pubDate')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "<div class='success-message'>New book added successfully. Please continue browsing!<'div>";
+        echo "<div class='success-message'>New book added successfully. Please continue browsing!</div>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
