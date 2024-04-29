@@ -234,13 +234,16 @@
             <li><a href="sell_book.php">Sell</a></li>
             <li><a href="about.php">About</a></li>
             <li class="search-container">
-                <div class="search-box">
-                    <input type="text" placeholder="Search Title, Author, Keyword, or ISBN" size="40">
-                    <a href="search_results.html" class="search-icon">
-                        <i class="fa fa-search"></i>
-                    </a>
-                </div>
+                <form id="searchForm" action="search_book.php" method="GET">
+                    <div class="search-box">
+                        <input id="searchInput" type="text" name="query" placeholder="Search Title, Author, Keyword, or ISBN" size="40">
+                        <button type="submit" class="search-icon">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </form>
             </li>
+
             <div class="user-cart-container">
                 <li class="cart"><a href="cart.php"><i class="fa fa-shopping-cart"></i></a></li>
                 <li class="user"><a href="user.php"><i class="fa fa-user"></i></a></li>
@@ -278,7 +281,12 @@
                 menuIcon.classList.add('fa-bars');
             }
         });
-            
+
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            const searchInput = document.getElementById('searchInput').value;
+            const formAction = "search_book.php?query=" + encodeURIComponent(searchInput);
+            document.getElementById('searchForm').action = formAction;
+        });
     </script>
  </body>
  </html>

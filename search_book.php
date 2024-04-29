@@ -1,18 +1,22 @@
 
+<html lang="en">
+    <head>
+        <title>Search Book - ShelfSwap</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type = "text/css" href= "style.css">
+        <?php include 'header.php'; ?>
+        <meta charset="utf-8">
+        <style type=text/css>
+        </style>
+    </head>
+</html>
+
 <!-- search for all books and info code -->
 <?php
-    // make form element to search a given book title
-    echo '<h1>Book Search</h1>
-    <form id="bookForm">
-        <label for="bookName">Enter Book Name:</label>
-        <input type="text" id="bookName" name="bookName">
-        <input type="submit" value="Search">
-    </form>
-    <div id="bookData"></div>';
 
     // checker to see if the bookName is updated and submitted to search again
-    if (isset($_GET['bookName'])) {
-        $bookName = $_GET['bookName'];
+    if (isset($_GET['query'])) {
+        $bookName = $_GET['query'];
         $url = make_url_given_book($bookName);
         get_book_data($url, $bookName);
     }
@@ -60,13 +64,3 @@
         return $new_url;
     }
 ?>
-
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Book Search</title>
-    </head>
-    <body>
-    </body>
-</html>
