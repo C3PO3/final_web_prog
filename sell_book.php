@@ -109,9 +109,9 @@
         </script>
     </head>
     <body>
-        <h1 class="page_title">Enter Book Details</h1>
+        <div class="page_title"><h1>Enter Book Details</h1></div>
 
-        <form action="process_sell.php" method="get" id="sell_book">
+        <form action="process_sell.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>" method="get" id="sell_book">
             <td class="lable-td"><label for="book_name" class="labels">Book Name:</label></td>
             <td class="box-td"><input type="text" id="book_name" name="book_name" class="box" required></td>
 
