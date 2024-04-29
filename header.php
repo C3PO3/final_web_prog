@@ -33,29 +33,21 @@
             max-width: 100%;
             width:100%;
             font-size:24px;
-            font-family:roboto;
         }
 
         .navbar li {
             margin-top: 0px;
-        }
-
-        .navbar li.logo {
-            margin-right: 0; 
-            margin-left:0;
-        }
-
-        .navbar li {
             display: inline;
             margin-right: 15px;
         }
 
-        .navbar .user-cart-container li.cart {
-            margin-right: 15px; 
+        .navbar li.logo {
+            margin-right: 10px; 
+            margin-left:0;
         }
 
-        .navbar li.search-container {
-            margin-right: 0px;
+        .navbar .user-cart-container li.cart {
+            margin-right: 20px; 
         }
 
 
@@ -234,7 +226,7 @@
             <li><a href="sell_book.php">Sell</a></li>
             <li><a href="about.php">About</a></li>
             <li class="search-container">
-                <form id="searchForm" action="search_book.php" method="GET">
+                <form id="searchForm" action="browse.php" method="GET">
                     <div class="search-box">
                         <input id="searchInput" type="text" name="query" placeholder="Search Title, Author, Keyword, or ISBN" size="40">
                         <button type="submit" class="search-icon">

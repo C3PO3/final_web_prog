@@ -3,6 +3,35 @@
 <head>
     <title>User Information</title>
     <link rel="stylesheet" type = "text/css" href= "style.css">
+
+    <style>
+
+        h2 {
+            margin-bottom: 50px;
+        }
+        .button {
+            display: block;
+            font-family: SourceSerif;
+            font-size: 30px;
+            background-color: #ffffff;
+            border: 1px, solid, #000000;
+            border-radius: 5px;
+            text-align: center;
+            margin: auto;
+            margin-top: 25px;
+            margin-bottom: 25px;
+            width: 310px;
+        }
+
+        .button:hover {
+            background-color: #e1e1e1;
+        }
+
+        a {
+            text-decoration: none;
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
 
@@ -23,12 +52,12 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect form data
-    $first_name = isset($_GET['first_name']) ? $_GET['first_name'] : '';
-    $last_name = isset($_GET['last_name']) ? $_GET['last_name'] : '';
-    $email = isset($_GET['email']) ? $_GET['email'] : '';
-    $password = isset($_GET['password']) ? $_GET['password'] : '';
+    $first_name = isset($_POST['first_name']) ? $_POST['first_name'] : '';
+    $last_name = isset($_POST['last_name']) ? $_POST['last_name'] : '';
+    $email = isset($_POST['email']) ? $_POST['email'] : '';
+    $password = isset($_POST['password']) ? $_POST['password'] : '';
 
     // Convert email to lowercase for case-insensitive comparison
     $email = strtolower($email);
@@ -39,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     if ($result->num_rows > 0) {
         echo "<script>alert('Email already exists in the database. Please use a different email.');</script>";
-        echo "<script>window.location.href = 'new-user.php';</script>"; // Redirect back to create user page
+        echo "<script>window.location.href = 'user.php';</script>"; // Redirect back to create user page
         exit; // Stop further execution of the script
     } else {
         // Prepare and bind SQL statement
@@ -48,12 +77,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         // Execute the statement
         if ($stmt->execute()) {
-            echo "<p>Welcome to ShelfSwap $first_name!</p>";
+            
+            echo "<h1 class='page_title'>Welcome to ShelfSwap $first_name!</h1>";
+            ?>
+            <h2 class="page_title">Lets Get Started</h2>
 
-            echo "<h2>Lets Get started</h2>";
-
-            echo '<a href="browse.php"><button class="button">Browse our Collection</button></a>';
-            echo '<a href="sell.php"><button class="button">Sell your books</button></a>';
+            <a href="browse.php"><button class="button">Browse our Collection</button></a>
+            <a href="sell_book.php"><button class="button">Sell your books</button></a>
+            <?
             
         } else {
             echo "Error: " . $stmt->error;

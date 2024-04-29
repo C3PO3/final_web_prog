@@ -13,5 +13,7 @@
 
 <h1 class="page_title">Shopping Cart</h1>
 
+<!-- add code here to use the associative array and display like browse -->
+<?php  ?>
 
 <?php include 'footer.php'; ?>

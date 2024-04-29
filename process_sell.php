@@ -99,4 +99,5 @@
     echo "<h1>Select the correct book by clicking the cover image: </h1>";
 
     get_book_data(make_url_given_book($searchTerm));
+    include 'footer.php';
 ?>

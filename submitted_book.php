@@ -46,4 +46,5 @@
 
     // Close connection
     $conn->close();
+    include 'footer.php';
 ?>

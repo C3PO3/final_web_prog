@@ -3,6 +3,36 @@
 <head>
     <title>User Information</title>
     <link rel="stylesheet" type = "text/css" href= "style.css">
+
+    <style>
+
+        h2 {
+            margin-bottom: 50px;
+        }
+
+        .button {
+            display: block;
+            font-family: SourceSerif;
+            font-size: 30px;
+            background-color: #ffffff;
+            border: 1px, solid, #000000;
+            border-radius: 5px;
+            text-align: center;
+            margin: auto;
+            margin-top: 25px;
+            margin-bottom: 25px;
+            width: 310px;
+        }
+
+        .button:hover {
+            background-color: #e1e1e1;
+        }
+
+        a {
+            text-decoration: none;
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
 
@@ -23,10 +53,10 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect form data
-    $email = isset($_GET['email']) ? $_GET['email'] : '';
-    $passwordin = isset($_GET['password']) ? $_GET['password'] : '';
+    $email = isset($_POST['email']) ? $_POST['email'] : '';
+    $passwordin = isset($_POST['password']) ? $_POST['password'] : '';
 
     // Convert email to lowercase for case-insensitive comparison
     $email = strtolower($email);
@@ -37,18 +67,26 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     if ($result->num_rows < 1) {
         echo "<script>alert('No Account Associates with that email');</script>";
-        echo "<script>window.location.href = 'login.php';</script>"; // Redirect back to login
+        echo "<script>window.location.href = 'user.php';</script>"; // Redirect back to login
         exit; // Stop further execution of the script
     } else {
         // Fetch the password from the result set
         $row = $result->fetch_assoc();
         $stored_password = $row['password'];
+        $name = $row['first_name'];
 
         // Check if the provided password matches the stored password
         if ($stored_password === $passwordin) {
-            echo "Welcome Back!";
+            echo "<h1 class='page_title'>Welcome Back $name!</h1>";
+            ?>
+            <h2 class="page_title">Lets Get Started</h2>
+
+            <a href="browse.php"><button class="button">Browse our Collection</button></a>
+            <a href="sell_book.php"><button class="button">Sell your books</button></a>
+            <?
         } else {
-            echo "Incorrect Password";
+            echo "<script>alert('Incorrect Password');</script>";
+            echo "<script>window.location.href = 'user.php';</script>"; // Redirect back to login
         }
     }
 }

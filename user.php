@@ -5,9 +5,7 @@
     <title>Login - ShelfSwap</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type = "text/css" href= "style.css">
-    <?php include 'header.php'; ?>
     <style>
-
 
         /* Navigation bar styles */
         .nav-bar {
@@ -38,12 +36,14 @@
         /* Section styles */
         .section {
             display: none;
-            max-width: 800px;
+            max-width: 70%;
+            width: 800px;
             margin: 40px auto;
             padding: 40px;
             background-color: #ffffff;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             border-radius: 15px;
+            
         }
 
         /* Section active */
@@ -73,42 +73,132 @@
             margin: auto;
         }
 
+        .lable-td {
+            padding-right: 10px;
+            text-align: right;
+            align-items: right;
+        }
+
+        .box-td {
+            padding-left: 10px;
+        }
+
         .labels {
             font-family: SourceSerif;
             font-size: 30px;
+            text-align: right;
+            align-items: right;
         }
 
-        .button {
+        .button-row {
+            margin: auto;
+            padding-top: 15px;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .input-button {
             font-family: SourceSerif;
             font-size: 30px;
             background-color: #ffffff;
             border: 1px, solid, #000000;
             border-radius: 5px;
-            margin: auto;
             text-align: center;
+            margin: auto 0;
         }
 
-        .button:hover {
+        .input-button:hover {
             background-color: #e1e1e1;
         }
 
+        table tr {
+            max-width: 20%;
+            width: 250px;
+            height: 50px;
+        }
+
+        .box {
+            height: 30px;
+            width: 200px;
+        }
+
+
         /* Media queries for responsiveness */
-        @media (max-width: 768px) {
-            /* Adjust layout for screens with max width of 768px */
-            .returning ul {
-                grid-template-columns: 1fr; /* Show one column for returning section */
-            }
-            .new-content {
-                flex-direction: column; /* Stack new content vertically */
-            }
-            .section img {
-                width: 100%; /* Make images full width */
-            }
+@media (max-width: 768px) {
+    /* Adjust layout for screens with max width of 768px */
+    .nav-bar {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .nav-button {
+        margin: 0 10px;
+        font-size: 20px;
+        padding: 10px 15px;
+    }
+
+    .section {
+        max-width: 90%;
+        width: 100%;
+    }
+
+    .input-table {
+        margin: auto;
+        width: auto;
+    }
+
+    .box-td {
+        display: table-cell;
+        text-align: right;
+        vertical-align: middle;
+    }
+
+    .labels {
+        font-size: 20px;
+    }
+
+    .box {
+        width: 90%;
+    }
+
+    .button-row {
+        text-align: center;
+        margin-top: 10px; /* Add margin to separate button row */
+    }
+
+    .input-button {
+        width: auto;
+        color: #000000;
+        font-family: SourceSerif;
+        font-size: 30px;
+        background-color: #ffffff;
+        border: 1px, solid, #000000;
+        border-radius: 5px;
+        text-align: center;
+        margin: auto 0;
+    }
+
+    table tr {
+        display: table-row;
+        width: auto;
+        margin-bottom: 0;
+    }
+    #header {
+        width: 100%;
+    }
+    #footer {
+        width: 100%;
+    }
 }
+
+
+
     </style>
 </head>
 
 <body>
+    <div id="header"><?php include 'header.php'; ?></div>
+
     <h1 class="page_title">Login or Sign Up</h1>
 
     <!-- Navigation bar with two buttons -->
@@ -118,51 +208,54 @@
     </div>
 
     <!-- new section -->
-    <div id="new-section" class="section about-container active">
-    <form id="newForm" method="get" action="new-user-process.php" onsubmit="return validateNewForm()">
+    <div id="new-section" class="section about-container active" class="sect">
+    <form id="newForm" method="POST" action="new-user-process.php" onsubmit="return validateNewForm()">
         <table class="input-table">
             <tr class="entry-box">
-                <th><label for="first_name" class="labels">First Name:</label></th>
-                <th><input type="text" id="first_name" name="first_name" class="box"></th>
+                <td class="lable-td"><label for="first_name" class="labels">First Name:</label></td>
+                <td class="box-td"><input type="text" id="first_name" name="first_name" class="box"></td>
             </tr>
 
             <tr class="entry-box">
-                <th><label for="last_name" class="labels">Last Name:</label></th>
-                <th><input type="text" id="last_name" name="last_name" class="box"></th>
+                <td class="lable-td"><label for="last_name" class="labels">Last Name:</label></td>
+                <td class="box-td"><input type="text" id="last_name" name="last_name" class="box"></td>
             </tr>
 
             <tr class="entry-box">
-                <th><label for="email" class="labels">Email:</label></th>
-                <th><input type="email" id="email" name="email" class="box"></th>
+                <td class="lable-td"><label for="email" class="labels">Email:</label></td>
+                <td class="box-td"><input type="email" id="email" name="email" class="box"></td>
             </tr>
 
             <tr class="entry-box">
-                <th><label for="password" class="labels">Password:</label></th>
-                <th><input type="password" id="password" name="password" class="box"></th>
+                <td class="lable-td"><label for="password" class="labels">Password:</label></td>
+                <td class="box-td"><input type="password" id="password" name="password" class="box"></td>
             </tr>
+
+            <tr><td colspan="2" class="button-row">
+                <input type="submit" value="Create Account" class="input-button">
+            </td></tr>
         </table>
-
-        <input type="submit" value="Create Account" class="button">
     </form> 
     </div>
 
     <!-- returning section -->
-<div id="returning-section" class="section returning">
-    <form id="returningForm" method="get" action="login-process.php" onsubmit="return validateReturningForm()">
+<div id="returning-section" class="section returning"  class="sect">
+    <form id="returningForm" method="POST" action="login-process.php" onsubmit="return validateReturningForm()">
     <table class="input-table">
         <tr class="entry-box">
-            <th><label for="email" class="labels">Email:</label></th>
-            <th><input type="email" id="returning-email" name="email" class="box"></th>
+            <td class="lable-td"><label for="email" class="labels">Email:</label></td>
+            <td class="box-td"><input type="email" id="returning-email" name="email" class="box"></td>
         </tr>
 
         <tr class="entry-box">
-            <th><label for="password" class="labels">Password:</label></th>
-            <th><input type="password" id="returning-password" name="password" class="box"></th>
+            <td class="lable-td"><label for="password" class="labels">Password:</label></td>
+            <td class="box-td"><input type="password" id="returning-password" name="password" class="box"></td>
         </tr>
-    </table>
 
-        <input type="submit" value="Login" class="button">
-    
+        <tr><td colspan="2" class="button-row">
+                <input type="submit" value="Login" class="input-button">
+        </td></tr>
+    </table>
     </form>
 </div>
 
@@ -221,7 +314,7 @@
 
 </script>
 
-<?php include 'footer.php'; ?>
+<div id="footer"><?php include 'footer.php'; ?></div>
 </body>
 
 </html>
