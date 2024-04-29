@@ -284,7 +284,7 @@
 
         document.getElementById('searchForm').addEventListener('submit', function(event) {
             const searchInput = document.getElementById('searchInput').value;
-            const formAction = "search_book.php?query=" + encodeURIComponent(searchInput);
+            const formAction = "browse.php?query=" + encodeURIComponent(searchInput);
             document.getElementById('searchForm').action = formAction;
         });
     </script>
