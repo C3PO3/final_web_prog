@@ -3,7 +3,7 @@
      isbn    quality     price
  -->
 
-<html>
+ <html>
     <head>
         <title>Browse - ShelfSwap</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -41,6 +41,14 @@
 
             .pubDiv, .isbn, .description {
                 margin-top: 5px;
+            }
+
+            .select-book-message {
+                color: 264653;
+                font-weight: bold;
+                padding: 10px;
+                margin-bottom: 20px;
+                text-align: center;
             }
         </style>
     </head>
@@ -96,8 +104,7 @@
 
     $searchTerm = $_GET["book_name"];
 
-    echo "<h1>Select the correct book by clicking the cover image: </h1>";
+   echo '<div class="select-book-message"><h1>Select the correct book by clicking the cover image:</h1></div>';
 
     get_book_data(make_url_given_book($searchTerm));
-    include 'footer.php';
 ?>

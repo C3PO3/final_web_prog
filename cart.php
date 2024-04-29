@@ -36,6 +36,37 @@
             margin: 5px 0; 
         }
 
+        .warning-message {
+            color: #d9534f; 
+            font-weight: bold; 
+            text-align: center; 
+            margin: 20px; 
+            padding: 10px; 
+            background-color: #f8d7da; 
+            border: 1px solid #f5c6cb; 
+            border-radius: 4px; 
+        }
+
+        .warning-message a {
+            color: #d9534f; 
+            text-decoration: none;
+            font-weight: bold; 
+        }
+
+        .warning-message a:hover {
+            text-decoration: underline;
+        }
+
+        .empty-cart-message {
+            color: #264653;
+            font-weight: bold;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #264653;
+            border-radius: 5px;
+            text-align: center;
+            margin:20px
+        }
 
 
     </style>
@@ -64,7 +95,6 @@
     }
 
     if (isset($_GET['username'])) {
-        // Sanitize the input to prevent SQL injection
         $username = $conn->real_escape_string($_GET['username']);
     
         // Query to retrieve the user's email from the users table
@@ -103,6 +133,7 @@
 
                         // Execute the query
                         $result = $conn->query($sql);
+                        echo $result;
 
                         // Check if any rows are returned
                         if ($result->num_rows > 0) {
@@ -122,7 +153,7 @@
                         }
                     }
                 } else {
-                    echo "No rows found in all_carts table with cart value: " . $cart_value;
+                    echo '<div class="empty-cart-message">Cart is Empty</div>';
                 }
             } else {
                 echo "Failed to retrieve cart value for user with email: " . $email;
@@ -131,9 +162,10 @@
             echo "User not found with username: " . $username;
         }
     } else {
-        echo "Username not provided. Please log in or make an account!";
+        echo "<div class='warning-message'>";
+        echo "Username not provided. <a href='user.php'> Please log in or make an account!</a>";
+        echo "</div>";
     }
-    
     // Close connection
     $conn->close();
 ?>
