@@ -219,7 +219,7 @@
 
     <nav>
         <ul class="navbar" id="nav">
-            <li class="logo"><a href="browse.php"><img src="logo.png"></a></li>
+            <li class="logo"><a href="browse.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>"><img src="logo.png"></a></li>
             <div class="menu" id="menu">
                 <li><a href="browse.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>">Browse</a></li>
                 <li><a href="sell_book.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>">Sell</a></li>
