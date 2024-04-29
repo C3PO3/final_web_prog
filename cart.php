@@ -129,11 +129,10 @@
                         $isbn = $row['isbn'];
                         $price = $row['price'];
                         // SQL query to search for a book with the given ISBN and price
-                        $sql = "SELECT * FROM book_collection WHERE isbn = '$isbn' AND price = '$price'";
+                        $sql = "SELECT * FROM Books WHERE ISBN = '$isbn' AND price = '$price'";
 
                         // Execute the query
                         $result = $conn->query($sql);
-                        echo $result;
 
                         // Check if any rows are returned
                         if ($result->num_rows > 0) {
@@ -143,7 +142,6 @@
                                 echo "<img src='" . $row['image'] . "' class='bookImage'>";
                                 echo "<div class='title'>Title: " . $row['title'] . "</div>";
                                 echo "<div class='author'>Author: " . $row['author'] . "</div>";
-                                echo "<div class='description'>Description: " . $row['description'] . "</div>";
                                 echo "<div class='quality'>Quality: " . $row['quality'] . "</div>";
                                 echo "<div class='price'>Price: " . $row['price'] . "</div>";
                                 echo "</div>";
