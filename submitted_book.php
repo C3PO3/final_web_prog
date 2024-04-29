@@ -20,6 +20,8 @@
     $author = $_GET['author'];
     $description = $_GET['description'];
     $image = $_GET['image'];
+    $pub = $_GET['pub'];
+    $pubDate = $_GET['pubDate'];
 
     // Database connection parameters
     $servername = "localhost";
@@ -36,7 +38,7 @@
     }
 
     // Prepare SQL statement to insert data into the book_collection table
-    $sql = "INSERT INTO book_collection (isbn, quality, price, title, author, description, image) VALUES ('$isbn', '$quality', '$price', '$title', '$author', '$description', '$image')";
+    $sql = "INSERT INTO Books (ISBN, quality, price, title, author, description, image, publisher, publishedDate) VALUES ('$isbn', '$quality', '$price', '$title', '$author', '$description', '$image', '$pub', '$pubDate')";
 
     if ($conn->query($sql) === TRUE) {
         echo "New book added successfully. Please continue browsing!";
