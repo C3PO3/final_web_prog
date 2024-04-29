@@ -36,6 +36,7 @@
                 border-color: #E76F51;
             }
         </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
             function setQuality(quality) {
                 document.getElementById('quality').value = quality;
