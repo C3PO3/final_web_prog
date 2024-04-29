@@ -14,7 +14,7 @@
                 display: flex;
                 justify-content: space-around;
                 margin-bottom: 30px;
-                margin-top: 30px;
+                margin-top: 10px;
                 font-size: 20px;
 
             }
@@ -45,8 +45,6 @@
                 background-color: #ddd; /* Hover background color */
             }   
             
-            
-
             .quality-container input[type="radio"] {
                 display: none;
             }
@@ -56,7 +54,12 @@
                 padding: 4px 11px;
                 font-size: 20px;
                 cursor: pointer;
-                border: 1px, solid, #000000;
+        
+            }
+
+            .qbutton {
+                margin: 5px;
+                border: 2px solid #000000;
                 border-radius: 5px;
             }
 
@@ -127,6 +130,19 @@
                 align-items: right;
             }
 
+            .quality-lable {
+                text-align: center;
+                align-content: center;
+                margin-top: 20px;
+            }   
+
+            .qlable {
+                font-family: SourceSerif;
+                font-size: 30px;
+                text-align: center;
+                margin-top: 20px;
+            }
+
             .button-row {
                 margin: auto;
                 padding-top: 15px;
@@ -187,7 +203,7 @@
         <div class="page_title"><h1>Enter Book Details</h1></div>
 
         <div  action="process_sell.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>" method="get" id="sell_book" class="sect">
-        <form id="newForm" method="POST" action="new-user-process.php" onsubmit="return validateNewForm()">
+        <form id="newForm" method="POST" action="process_sell.php" onsubmit="return validateNewForm()">
             <table class="input-table">
                 <tr class="entry-box">
                     <td class="lable-td"><label for="book_name" class="labels">Book Title:</label></td>
@@ -203,22 +219,30 @@
 
             
             <table class="input-table">
+                <tr><td class="quality-label">
+                    <div class="qlable">Book Quality</div>
+                </td></tr>
                 <tr>
                 <td><div class="quality-container">
+                    <div class="qbutton">
                     <input type="radio" name="quality" id="poor" value="poor" class="quality-option" onclick="setQuality('poor')">
-                    <label for="poor">Poor</label>
+                    <label for="poor">Poor</label></div>
 
+                    <div class="qbutton">
                     <input type="radio" name="quality"  id="well_loved" value="well_loved" class="quality-option" onclick="setQuality('well_loved')">
-                    <label for="well_loved">Well Loved</label>
+                    <label for="well_loved">Well Loved</label></div>
 
+                    <div class="qbutton">
                     <input type="radio" name="quality" id="fair" value="fair" class="quality-option" onclick="setQuality('fair')">
-                    <label for="fair">Fair</label>
+                    <label for="fair">Fair</label></div>
 
+                    <div class="qbutton">
                     <input type="radio" name="quality" id="excellent" value="excellent" class="quality-option" onclick="setQuality('excellent')">
-                    <label for="excellent">Excellent</label>
+                    <label for="excellent">Excellent</label></div>
 
+                    <div class="qbutton">
                     <input type="radio" name="quality" id="brand_new" value="brand_new" class="quality-option" onclick="setQuality('brand_new')">
-                    <label for="brand_new">Brand New</label>
+                    <label for="brand_new">Brand New</label></div>
                 </div></td>
                 </tr>
 
