@@ -1,3 +1,16 @@
+
+<html>
+    <head>
+        <title>Browse - ShelfSwap</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type = "text/css" href= "style.css">
+        <?php include 'header.php'; ?>
+        <meta charset="utf-8">
+        <style type=text/css>
+        </style>
+    </head>
+</html>
+
 <?php
     echo "<h1>BROWSE</h1>";
     // Database connection parameters
@@ -38,12 +51,3 @@
     // Close connection
     $conn->close();
 ?>
-
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Two Owls Cafe</title>
-        <style type=text/css>
-        </style>
-    </head>
-</html>

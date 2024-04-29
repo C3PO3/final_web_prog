@@ -3,6 +3,48 @@
      isbn    quality     price
  -->
 
+<html>
+    <head>
+        <title>Browse - ShelfSwap</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type = "text/css" href= "style.css">
+        <?php include 'header.php'; ?>
+        <meta charset="utf-8">
+        <style type=text/css>
+            /* Your CSS styles here */
+            .book {
+                border: 1px solid #ccc;
+                padding: 10px;
+                margin-bottom: 10px;
+                background-color: #f9f9f9;
+                transition: background-color 0.3s;
+            }
+
+            .book:hover {
+                background-color: #e9e9e9;
+            }
+
+            .bookImage {
+                width: 100px;
+                height: auto;
+                margin-right: 10px;
+                float: left;
+            }
+
+            .title {
+                font-weight: bold;
+            }
+
+            .author {
+                font-style: italic;
+            }
+
+            .pubDiv, .isbn, .description {
+                margin-top: 5px;
+            }
+        </style>
+    </head>
+</html>
  
 <!-- helper search php code given book name -->
 <?php
@@ -58,41 +100,3 @@
 
     get_book_data(make_url_given_book($searchTerm));
 ?>
-
-<html>
-    <head>
-        <style>
-            /* Your CSS styles here */
-            .book {
-                border: 1px solid #ccc;
-                padding: 10px;
-                margin-bottom: 10px;
-                background-color: #f9f9f9;
-                transition: background-color 0.3s;
-            }
-
-            .book:hover {
-                background-color: #e9e9e9;
-            }
-
-            .bookImage {
-                width: 100px;
-                height: auto;
-                margin-right: 10px;
-                float: left;
-            }
-
-            .title {
-                font-weight: bold;
-            }
-
-            .author {
-                font-style: italic;
-            }
-
-            .pubDiv, .isbn, .description {
-                margin-top: 5px;
-            }
-        </style>
-    </head>
-</html>
