@@ -32,6 +32,7 @@ $(document).ready(function() {
             // Add each of the elements to the book
             bookElement.append(coverImageForm.append(coverImageButton, hiddenInput), priceElement, authorElement, titleElement);
             booksContainer.append(bookElement);
+
         });
     }
 });
