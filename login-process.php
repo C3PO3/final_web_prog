@@ -39,11 +39,11 @@
 <?php
 include 'header.php';
 
-// Your database connection code
+// database connection code
 $servername = "localhost";
 $username = "uxv8sl1ts3vhy";
 $password = "1*@El&1_68&l";
-$dbname = "dbikb3jnjnetbs";
+$database = "dbikb3jnjnetbs";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
@@ -55,15 +55,15 @@ if ($conn->connect_error) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect form data
-    $username = isset($_POST['username']) ? $_POST['username'] : '';
+    $email = isset($_POST['email']) ? $_POST['email'] : '';
     $passwordin = isset($_POST['password']) ? $_POST['password'] : '';
 
-    // Convert username to lowercase for case-insensitive comparison
-    $username = strtolower($username);
+    // Convert email to lowercase for case-insensitive comparison
+    $email = strtolower($email);
 
-    // Check if username already exists in the database (case-insensitive)
-    $check_username_query = "SELECT * FROM users WHERE LOWER(email) = '$username'";
-    $result = $conn->query($check_username_query);
+    // Check if email already exists in the database (case-insensitive)
+    $check_email_query = "SELECT * FROM users WHERE LOWER(email) = '$email'";
+    $result = $conn->query($check_email_query);
 
     if ($result->num_rows < 1) {
         echo "<script>alert('No Account Associates with that email');</script>";
@@ -74,7 +74,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         $stored_password = $row['password'];
         $name = $row['first_name'];
-        echo $name;
 
         // Check if the provided password matches the stored password
         if ($stored_password === $passwordin) {
