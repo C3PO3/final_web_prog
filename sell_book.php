@@ -81,5 +81,6 @@
 
             <input type="submit" value="Submit" id = "submit_sell">
         </form>
+        <?php include 'footer.php'; ?>
     </body>
 </html>

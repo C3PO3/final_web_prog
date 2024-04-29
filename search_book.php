@@ -63,4 +63,5 @@
         $new_url = $base_url . $queryTerm;
         return $new_url;
     }
+    include 'footer.php';
 ?>
