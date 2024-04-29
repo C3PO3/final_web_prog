@@ -19,11 +19,6 @@
             margin: 10px; 
             padding: 10px; 
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
-            transition: transform 0.3s; 
-        }
-
-        .book:hover {
-            transform: translateY(-5px);
         }
 
         .bookImage {
@@ -40,6 +35,7 @@
         .price {
             margin: 5px 0; 
         }
+
 
 
     </style>
