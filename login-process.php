@@ -37,18 +37,20 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     if ($result->num_rows < 1) {
         echo "<script>alert('No Account Associates with that email');</script>";
-        echo "<script>window.location.href = 'login.php';</script>"; // Redirect back to login
+        echo "<script>window.location.href = 'user.php';</script>"; // Redirect back to login
         exit; // Stop further execution of the script
     } else {
         // Fetch the password from the result set
         $row = $result->fetch_assoc();
         $stored_password = $row['password'];
+        $name = $row['first_name'];
 
         // Check if the provided password matches the stored password
         if ($stored_password === $passwordin) {
             echo "Welcome Back!";
         } else {
-            echo "Incorrect Password";
+            echo "<script>alert('Incorrect Password');</script>";
+            echo "<script>window.location.href = 'user.php';</script>"; // Redirect back to login
         }
     }
 }

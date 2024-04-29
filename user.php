@@ -122,6 +122,11 @@
             width: 200px;
         }
 
+        a {
+            text-decoration: none;
+            margin: auto;
+        }
+
         /* Media queries for responsiveness */
 @media (max-width: 768px) {
     /* Adjust layout for screens with max width of 768px */

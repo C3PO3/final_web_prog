@@ -3,6 +3,21 @@
 <head>
     <title>User Information</title>
     <link rel="stylesheet" type = "text/css" href= "style.css">
+
+    <style>
+        .button {
+            display: block;
+            font-family: SourceSerif;
+            font-size: 30px;
+            background-color: #ffffff;
+            border: 1px, solid, #000000;
+            border-radius: 5px;
+            text-align: center;
+            margin: auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
 
@@ -48,12 +63,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         // Execute the statement
         if ($stmt->execute()) {
-            echo "<p>Welcome to ShelfSwap $first_name!</p>";
+            
+            echo "<h1 class='page_title'>Welcome to ShelfSwap $first_name!</h1>";
+            ?>
+            <h2 class="page_title">Lets Get started</h2>
 
-            echo "<h2>Lets Get started</h2>";
-
-            echo '<a href="browse.php"><button class="button">Browse our Collection</button></a>';
-            echo '<a href="sell.php"><button class="button">Sell your books</button></a>';
+            <a href="browse.php"><button class="button">Browse our Collection</button></a>
+            <a href="sell.php"><button class="button">Sell your books</button></a>
+            <?
             
         } else {
             echo "Error: " . $stmt->error;
