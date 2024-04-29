@@ -64,7 +64,7 @@
     </head>
     <body>
         <div class="page_title"><h1>Enter Book Details</h1></div>
-        <form action="process_sell.php" method="get" id="sell_book">
+        <form action="process_sell.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>" method="get" id="sell_book">
             <label for="book_name">Book Name:</label><br>
             <input type="text" id="book_name" name="book_name" required><br><br>
 
