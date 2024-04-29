@@ -40,23 +40,6 @@
     letter-spacing: 5px;
 }
 
-<<<<<<< Updated upstream
-body {
-    font-family: SourceSerif;
-}
-
-h2 {
-    font-family: OswaldBold;
-}
-
-.entry-box {
-    font-family: SourceSerif;
-    letter-spacing: 5px;
-}
-
-.book img:hover {
-=======
-
 .book {
     display: inline-block;
     width: 200px;
@@ -84,7 +67,6 @@ h2 {
 }
 
 .book input:hover {
->>>>>>> Stashed changes
     width: 190px;
     height: 290px;
     padding: 5px;
@@ -118,9 +100,4 @@ h2 {
     margin: 0;
     float: right;
     font-style: italic;
-<<<<<<< Updated upstream
 }
-
-=======
-}
->>>>>>> Stashed changes
