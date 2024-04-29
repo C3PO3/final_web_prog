@@ -234,7 +234,7 @@
             <li><a href="sell_book.php">Sell</a></li>
             <li><a href="about.php">About</a></li>
             <li class="search-container">
-                <form id="searchForm" action="search_book.php" method="GET">
+                <form id="searchForm" action="browse.php" method="GET">
                     <div class="search-box">
                         <input id="searchInput" type="text" name="query" placeholder="Search Title, Author, Keyword, or ISBN" size="40">
                         <button type="submit" class="search-icon">
