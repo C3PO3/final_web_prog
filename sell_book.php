@@ -9,36 +9,61 @@
         <?php include 'header.php'; ?>
         <meta charset="utf-8">
         <style type=text/css>
-            .box-td {
-                padding-left: 10px;
-            }
+            
             .quality-container {
                 display: flex;
                 justify-content: space-around;
                 margin-bottom: 30px;
+                margin-top: 30px;
+                font-size: 20px;
+
             }
             .quality-option-text {
                 margin-top: 5px;
             }
+
             .quality-option {
-                display: flex;
-                width: 15px;
-                height: 15px;
-                border: 2px solid rgb(0, 0, 0);
-                border-radius: 50%;
-                text-align: center;
-                line-height: 50px;
-                flex-direction: column;
-                align-items: center;
-                white-space: nowrap;
+                display: block;
+                margin-right: 10px;
+                margin-left: 10px;
+                cursor: pointer;
             }
+
+            .quality-radio {
+                display: none;
+            }
+
+            .quality-option.selected {
+                font-weight: bold; /* Example styling for selected option */
+            }
+            .quality-option.selected {
+                background-color: #E76F51; /* Selected background color */
+                color: #fff; /* Text color for selected state */
+            }
+
             .quality-option:hover {
-                background-color: rgb(211, 211, 211); /* Change to whatever color you desire */
+                background-color: #ddd; /* Hover background color */
+            }   
+            
+            
+
+            .quality-container input[type="radio"] {
+                display: none;
             }
-            .selected {
-                border-color: #E76F51;
+
+            .quality-container label {
+                display: inline-block;
+                padding: 4px 11px;
+                font-size: 20px;
+                cursor: pointer;
+                border: 1px, solid, #000000;
+                border-radius: 5px;
             }
-            /* new stuff */
+
+            .quality-container input[type="radio"]:checked+label {
+                background-color: #e1e1e1;
+            }
+          
             .input-table {
                 margin: auto;
             }
@@ -81,6 +106,56 @@
                 height: 30px;
                 width: 200px;
             }
+            .input-table {
+                margin: auto;
+            }
+
+            .lable-td {
+                padding-right: 10px;
+                text-align: right;
+                align-items: right;
+            }
+
+            .box-td {
+                padding-left: 10px;
+            }
+
+            .labels {
+                font-family: SourceSerif;
+                font-size: 30px;
+                text-align: right;
+                align-items: right;
+            }
+
+            .button-row {
+                margin: auto;
+                padding-top: 15px;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .input-button {
+                font-family: SourceSerif;
+                font-size: 30px;
+                background-color: #ffffff;
+                border: 1px, solid, #000000;
+                border-radius: 5px;
+                text-align: center;
+                margin: auto 0;
+            }
+
+            .input-button:hover {
+                background-color: #e1e1e1;
+            }
+
+            table tr {
+                max-width: 20%;
+                width: 250px;
+                height: 50px;
+            }
+
+
+
         </style>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
@@ -111,31 +186,49 @@
     <body>
         <div class="page_title"><h1>Enter Book Details</h1></div>
 
-        <form action="process_sell.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>" method="get" id="sell_book">
-            <td class="lable-td"><label for="book_name" class="labels">Book Name:</label></td>
-            <td class="box-td"><input type="text" id="book_name" name="book_name" class="box" required></td>
+        <div  action="process_sell.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>" method="get" id="sell_book" class="sect">
+        <form id="newForm" method="POST" action="new-user-process.php" onsubmit="return validateNewForm()">
+            <table class="input-table">
+                <tr class="entry-box">
+                    <td class="lable-td"><label for="book_name" class="labels">Book Title:</label></td>
+                    <td class="box-td"><input type="text" id="book_name" name="book_name" class="box"></td>
+                </tr>
 
-            <br><br><br><br>
-            <div class="quality-container">
-                <div class="quality-option" onclick="setQuality('poor')">Poor</div>
-                <div class="quality-option" onclick="setQuality('well_loved')">Well Loved</div>
-                <div class="quality-option" onclick="setQuality('fair')">Fair</div>
-                <div class="quality-option" onclick="setQuality('excellent')">Excellent</div>
-                <div class="quality-option" onclick="setQuality('brand_new')">Brand New</div>
-                <input type="hidden" id="quality" name="quality" required>
-            </div>
-            <br>
+                <tr class="entry-box">
+                    <td class="lable-td"><label for="price" class="labels">Price:</label></td>
+                    <td class="box-td"><input type="text" id="price" name="price" class="box"></td>
+                </tr>
 
-            <td class="lable-td"><label for="price" class="labels">Price:</label></td>
-            <td class="box-td"><input type="number" id="price" name="price" step="0.01" class="box" required></td>
+            </table>
 
-            <br><br>
-            <tr>
-                <td colspan="2" class="button-row">
-                    <input type="submit" value="Submit" id = "submit_sell" class="input-button">
-                </td>
-            </tr>
-        </form>
+            
+            <table class="input-table">
+                <tr>
+                <td><div class="quality-container">
+                    <input type="radio" name="quality" id="poor" value="poor" class="quality-option" onclick="setQuality('poor')">
+                    <label for="poor">Poor</label>
+
+                    <input type="radio" name="quality"  id="well_loved" value="well_loved" class="quality-option" onclick="setQuality('well_loved')">
+                    <label for="well_loved">Well Loved</label>
+
+                    <input type="radio" name="quality" id="fair" value="fair" class="quality-option" onclick="setQuality('fair')">
+                    <label for="fair">Fair</label>
+
+                    <input type="radio" name="quality" id="excellent" value="excellent" class="quality-option" onclick="setQuality('excellent')">
+                    <label for="excellent">Excellent</label>
+
+                    <input type="radio" name="quality" id="brand_new" value="brand_new" class="quality-option" onclick="setQuality('brand_new')">
+                    <label for="brand_new">Brand New</label>
+                </div></td>
+                </tr>
+
+                <tr><td class="button-row">
+                    <input type="submit" value="Sell Book" class="input-button">
+                </td></tr>
+            </table>
+        </form> 
+        </div>
+
         <?php include 'footer.php'; ?>
     </body>
 </html>

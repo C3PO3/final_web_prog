@@ -78,18 +78,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Check if the provided password matches the stored password
         if ($stored_password === $passwordin) {
-            $cookie_name = 'user';
-            $cookie_value = $name;
-            $cookie_expire = time() + (24 * 60 * 60); // 24 hours
-            setcookie($cookie_name, $cookie_value, 864000, "/");
-
-            if(isset($_COOKIE['user'])) {
-                $username = $_COOKIE['user'];
-                echo "Welcome There" . $_COOKIE['user'] . "!";
-            } else {
-                echo "<h2>Cookie 'user' is not set!</h2>";
-            }
-
             echo "<h1 class='page_title'>Welcome Back $name!</h1>";
             ?>
             <h2 class="page_title">Lets Get Started</h2>
