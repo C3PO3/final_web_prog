@@ -72,8 +72,10 @@
                 $author = isset($volumeInfo['authors']) ? implode(", ", $volumeInfo['authors']) : "Unknown";
                 $description = isset($volumeInfo['description']) ? $volumeInfo['description'] : "Description not available";
                 $image = isset($volumeInfo['imageLinks']['thumbnail']) ? $volumeInfo['imageLinks']['thumbnail'] : "Image not available";
+                $pub = isset($volumeInfo['publisher']) ? $volumeInfo['publisher'] : "Publisher not available";
+                $pubDate = isset($volumeInfo['publishedDate']) ? $volumeInfo['publishedDate'] : "Publication date not available";
 
-                $bookDiv = "<div class='book' onclick=\"window.location.href='submitted_book.php?isbn=$isbn&quality=$quality&price=$price&title=".urlencode($title)."&author=".urlencode($author)."&description=".urlencode($description)."&image=".urlencode($image)."';\">";
+                $bookDiv = "<div class='book' onclick=\"window.location.href='submitted_book.php?isbn=$isbn&quality=$quality&price=$price&title=".urlencode($title)."&author=".urlencode($author)."&description=".urlencode($description)."&image=".urlencode($image)."&pub=".urlencode($pub)."&pubDate=".urlencode($pubDate)."';\">";
                 $titleDiv = "<div class='title'>Title: $title</div>";
                 $authorDiv = "<div class='author'>Author: $author</div>";
                 $pubDiv = "<div class='pubDiv'>Published first in: " . $volumeInfo['publishedDate'] . "</div>";
