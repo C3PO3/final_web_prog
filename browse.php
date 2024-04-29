@@ -116,44 +116,46 @@
   </head>
   <body>
       <?php
-      echo "<h1>BROWSE</h1>";
-      // Database connection parameters
-      $servername = "localhost";
-      $username = "u5rikrp6bcxpf";
-      $password = "passtest2233";
-      $dbname = "dbseizae2lm8vt";
+            $servername = "localhost";
+            $username = "u5rikrp6bcxpf";
+            $password = "passtest2233";
+            $dbname = "dbseizae2lm8vt";
 
-      // Create connection
-      $conn = new mysqli($servername, $username, $password, $dbname);
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
 
-      // Check connection
-      if ($conn->connect_error) {
-          die("Connection failed: " . $conn->connect_error);
-      }
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
 
-      // Query to retrieve all books from the book_collection table
-      $sql = "SELECT * FROM book_collection";
-      $result = $conn->query($sql);
+            // Query to retrieve all books from the book_collection table
+            $sql = "SELECT * FROM book_collection";
+            if (isset($_GET['query']) && !empty($_GET['query'])) {
+                $query = $_GET['query'];
+                $sql .= " WHERE author LIKE '%$query%' OR title LIKE '%$query%' OR description LIKE '%$query%' OR isbn LIKE '%$query%'";
+            }
+            $result = $conn->query($sql);
 
-      if ($result->num_rows > 0) {
-          // Output data of each row
-          while ($row = $result->fetch_assoc()) {
-              // Display book information
-              echo "<div class='book' onclick='toggleDescription(this)'>";
-              echo "<img src='" . $row['image'] . "' class='bookImage'>";
-              echo "<div class='title'>Title: " . $row['title'] . "</div>";
-              echo "<div class='author'>Author: " . $row['author'] . "</div>";
-              echo "<div class='description'>Description: " . $row['description'] . "</div>";
-              echo "<div class='quality'>Quality: " . $row['quality'] . "</div>";
-              echo "<div class='price'>Price: " . $row['price'] . "</div>";
-              echo "</div>";
-          }
-      } else {
-          echo "0 results";
-      }
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while ($row = $result->fetch_assoc()) {
+                    // Display book information
+                    echo "<div class='book' onclick='toggleDescription(this)'>";
+                    echo "<img src='" . $row['image'] . "' class='bookImage'>";
+                    echo "<div class='title'>Title: " . $row['title'] . "</div>";
+                    echo "<div class='author'>Author: " . $row['author'] . "</div>";
+                    echo "<div class='description'>Description: " . $row['description'] . "</div>";
+                    echo "<div class='quality'>Quality: " . $row['quality'] . "</div>";
+                    echo "<div class='price'>Price: " . $row['price'] . "</div>";
+                    echo "</div>";
+                }
+            } else {
+                echo "0 results";
+            }
 
-      // Close connection
-      $conn->close();
+            // Close connection
+            $conn->close();
       ?>
 
       <script>
