@@ -41,7 +41,7 @@
         }
 
         .navbar li.logo {
-            margin-right: 0; 
+            margin-right: 10px; 
             margin-left:0;
         }
 
