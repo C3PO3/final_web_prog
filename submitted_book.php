@@ -7,6 +7,16 @@
         <?php include 'header.php'; ?>
         <meta charset="utf-8">
         <style type=text/css>
+            .success-message {
+                text-align: center;
+                margin: 20px;
+                padding: 10px;
+                border-radius: 4px;
+                color: #155724;
+                background-color: #d4edda;
+                border: 1px solid #c3e6cb;
+                font-weight: bold;
+            }
         </style>
     </head>
 </html>
@@ -41,7 +51,7 @@
     $sql = "INSERT INTO Books (ISBN, quality, price, title, author, description, image, publisher, publishedDate) VALUES ('$isbn', '$quality', '$price', '$title', '$author', '$description', '$image', '$pub', '$pubDate')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "New book added successfully. Please continue browsing!";
+        echo "<div class='success-message'>New book added successfully. Please continue browsing!</div>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }

@@ -53,7 +53,6 @@
 
         .navbar li.logo img {
             max-width:300px !important;
-
         }
 
         .navbar li a {
@@ -275,10 +274,8 @@
 
         document.getElementById('searchForm').addEventListener('submit', function(event) {
             const searchInput = document.getElementById('searchInput').value;
-            const formAction = "browse.php?query=" + encodeURIComponent(searchInput);
-            if (isset($_GET['username'])) {
-                formAction += "&username=" + htmlspecialchars($_GET['username']);
-            }
+            let formAction = document.getElementById('searchForm').action + "&query=" + encodeURIComponent(searchInput);
+
             document.getElementById('searchForm').action = formAction;
         });
     </script>

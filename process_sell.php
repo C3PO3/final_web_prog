@@ -54,7 +54,12 @@
     </head>
 </html>
  
+<?php
+    echo '<div class="select-book-message"><h1>Select the correct book by clicking the cover image:</h1></div>';
+?>
+
 <!-- helper search php code given book name -->
+<div class="books-container" id="container">
 <?php
     // Function to fetch book data from the API using the provided URL
     function get_book_data($url) {
@@ -72,13 +77,15 @@
                 $author = isset($volumeInfo['authors']) ? implode(", ", $volumeInfo['authors']) : "Unknown";
                 $description = isset($volumeInfo['description']) ? $volumeInfo['description'] : "Description not available";
                 $image = isset($volumeInfo['imageLinks']['thumbnail']) ? $volumeInfo['imageLinks']['thumbnail'] : "Image not available";
+                $pub = isset($volumeInfo['publisher']) ? $volumeInfo['publisher'] : "Publisher not available";
+                $pubDate = isset($volumeInfo['publishedDate']) ? $volumeInfo['publishedDate'] : "Publication date not available";
 
-                $bookDiv = "<div class='book' onclick=\"window.location.href='submitted_book.php?isbn=$isbn&quality=$quality&price=$price&title=".urlencode($title)."&author=".urlencode($author)."&description=".urlencode($description)."&image=".urlencode($image)."';\">";
+                $bookDiv = "<div class='book' onclick=\"window.location.href='submitted_book.php?isbn=$isbn&quality=$quality&price=$price&title=".urlencode($title)."&author=".urlencode($author)."&description=".urlencode($description)."&image=".urlencode($image)."&pub=".urlencode($pub)."&pubDate=".urlencode($pubDate)."';\">";
                 $titleDiv = "<div class='title'>Title: $title</div>";
                 $authorDiv = "<div class='author'>Author: $author</div>";
                 $pubDiv = "<div class='pubDiv'>Published first in: " . $volumeInfo['publishedDate'] . "</div>";
                 $isbnDiv = "<div class='isbn'>ISBN: $isbn</div>"; // Display ISBN
-                $descriptionDiv = "<div class='description'>Description: $description</div>";
+                // $descriptionDiv = "<div class='description'>Description: $description</div>";
 
                 // Adding book image if available
                 if (isset($volumeInfo['imageLinks'])) {
@@ -103,8 +110,6 @@
     }
 
     $searchTerm = $_GET["book_name"];
-
-   echo '<div class="select-book-message"><h1>Select the correct book by clicking the cover image:</h1></div>';
-
     get_book_data(make_url_given_book($searchTerm));
 ?>
+</div>
