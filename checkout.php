@@ -3,20 +3,51 @@
 <head>
     <title>Checkout</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+    .success-message {
+            text-align: center;
+            margin: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            color: #155724;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            font-weight: bold;
+        }
+
+        .empty-cart-message {
+            text-align: center;
+            margin: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            font-weight: bold;
+        }
+
+        .warning-message {
+            text-align: center;
+            margin: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            color: #856404;
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
 <?php
-    // Include the header file
     include 'header.php';
 
-    // Database connection details
     $servername = "localhost";
     $username = "uxv8sl1ts3vhy";
     $password = "1*@El&1_68&l";
     $dbname = "dbikb3jnjnetbs";
 
-    // Create a connection
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     // Check connection
