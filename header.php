@@ -220,26 +220,25 @@
     <nav>
         <ul class="navbar" id="nav">
             <li class="logo"><a href="browse.php"><img src="logo.png"></a></li>
-             <div class="menu" id="menu">
+            <div class="menu" id="menu">
+                <li><a href="browse.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>">Browse</a></li>
+                <li><a href="sell_book.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>">Sell</a></li>
+                <li><a href="about.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>">About</a></li>
+                <li class="search-container">
+                    <form id="searchForm" action="browse.php" method="GET">
+                        <div class="search-box">
+                            <input id="searchInput" type="text" name="query" placeholder="Search Title, Author, Keyword, or ISBN" size="40">
+                            <button type="submit" class="search-icon">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </li>
 
-            <li><a href="browse.php">Browse</a></li>
-            <li><a href="sell_book.php">Sell</a></li>
-            <li><a href="about.php">About</a></li>
-            <li class="search-container">
-                <form id="searchForm" action="browse.php" method="GET">
-                    <div class="search-box">
-                        <input id="searchInput" type="text" name="query" placeholder="Search Title, Author, Keyword, or ISBN" size="40">
-                        <button type="submit" class="search-icon">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div>
-                </form>
-            </li>
-
-            <div class="user-cart-container">
-                <li class="cart"><a href="cart.php"><i class="fa fa-shopping-cart"></i></a></li>
-                <li class="user"><a href="user.php"><i class="fa fa-user"></i></a></li>
-            </div>
+                <div class="user-cart-container">
+                    <li class="cart"><a href="cart.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li class="user"><a href="user.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>"><i class="fa fa-user"></i></a></li>
+                </div>
             </div>
             <a href="javascript:void(0);" class="icon" onclick="toggleMenu()" style="text-decoration: none;">
                  <i class="fa fa-bars" id="menuIcon"></i>
@@ -277,6 +276,9 @@
         document.getElementById('searchForm').addEventListener('submit', function(event) {
             const searchInput = document.getElementById('searchInput').value;
             const formAction = "browse.php?query=" + encodeURIComponent(searchInput);
+            if (isset($_GET['username'])) {
+                formAction += "&username=" + htmlspecialchars($_GET['username']);
+            }
             document.getElementById('searchForm').action = formAction;
         });
     </script>
