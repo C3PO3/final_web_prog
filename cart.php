@@ -3,7 +3,46 @@
 <head>
     <title>User Registration</title>
     <link rel="stylesheet" type = "text/css" href= "style.css">
+    <style> 
 
+        .books-container {
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .book {
+            background-color: white; 
+            border: 1px solid #ddd; 
+            border-radius: 8px; 
+            margin: 10px; 
+            padding: 10px; 
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+            transition: transform 0.3s; 
+        }
+
+        .book:hover {
+            transform: translateY(-5px);
+        }
+
+        .bookImage {
+            width: 100%; 
+            height: auto; 
+            border-radius: 4px; 
+            margin-bottom: 10px;
+        }
+
+        .title,
+        .author,
+        .description,
+        .quality,
+        .price {
+            margin: 5px 0; 
+        }
+
+
+    </style>
 </head>
 <body>
 
@@ -16,9 +55,9 @@
 <!-- add code here to use the associative array and display like browse -->
 <?php
     $servername = "localhost";
-    $username = "u5rikrp6bcxpf";
-    $password = "passtest2233";
-    $dbname = "dbseizae2lm8vt";
+    $username = "uxv8sl1ts3vhy";
+    $password = "1*@El&1_68&l";
+    $dbname = "dbikb3jnjnetbs";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
