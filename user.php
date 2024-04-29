@@ -25,6 +25,8 @@
             color: #333;
             cursor: pointer;
             transition: background-color 0.3s, color 0.3s;
+            font-family: SourceSerif;
+            font-size: 30px;
         }
 
         /* Active button styles */
@@ -58,13 +60,6 @@
             justify-content:center;
         }
 
-
-        .section img {
-            width: 50%; 
-            height: auto;
-            border-radius: 10px; 
-        }
-
         .new-text {
             width: 50%; 
         }
@@ -74,45 +69,27 @@
             padding-bottom: 20px;
         }
 
-        .about-section img {
-            width: 300px;
-            height: 200px; 
-            object-fit: cover; 
-            border-radius: 10px; 
+        .input-table {
+            margin: auto;
         }
 
-        /* returning section styles */
-        .returning ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 20px; 
-        }
-        
-        .returning ul li img {
-            width: 200px;
-            height: 300px; 
-            object-fit: cover; 
+        .labels {
+            font-family: SourceSerif;
+            font-size: 30px;
         }
 
-        .returning ul li {
-            margin-bottom: 10px;
-            position: relative;
+        .button {
+            font-family: SourceSerif;
+            font-size: 30px;
+            background-color: #ffffff;
+            border: 1px, solid, #000000;
+            border-radius: 5px;
+            margin: auto;
             text-align: center;
         }
 
-        .returning ul li p {
-            margin-top: 10px;
-            color: #333;
-        }
-
-
-        /* Paragraph elements for returning titles */
-        .returning ul li p.name {
-            color: #333;
-            font-weight: bold; /* Keeps titles regular (not bold) */
+        .button:hover {
+            background-color: #e1e1e1;
         }
 
         /* Media queries for responsiveness */
@@ -136,33 +113,32 @@
 
     <!-- Navigation bar with two buttons -->
     <div class="nav-bar">
-        <button class="nav-button active" id="new-button" onclick="showSection('new')">new</button>
-        <button class="nav-button" id="returning-button" onclick="showSection('returning')">returning</button>
+        <button class="nav-button active" id="new-button" onclick="showSection('new')">New</button>
+        <button class="nav-button" id="returning-button" onclick="showSection('returning')">Returning</button>
     </div>
 
     <!-- new section -->
     <div id="new-section" class="section about-container active">
     <form id="newForm" method="get" action="new-user-process.php" onsubmit="return validateNewForm()">
-        <table id="inputs">
+        <table class="input-table">
             <tr class="entry-box">
-                
-                <th><label for="first_name">First Name:</label></th>
-                <th><input type="text" id="first_name" name="first_name"></th>
+                <th><label for="first_name" class="labels">First Name:</label></th>
+                <th><input type="text" id="first_name" name="first_name" class="box"></th>
             </tr>
 
             <tr class="entry-box">
-            <th><label for="last_name">Last Name:</label></th>
-            <th><input type="text" id="last_name" name="last_name"></th>
+                <th><label for="last_name" class="labels">Last Name:</label></th>
+                <th><input type="text" id="last_name" name="last_name" class="box"></th>
             </tr>
 
             <tr class="entry-box">
-            <th><label for="email">Email:</label></th>
-            <th><input type="email" id="email" name="email"></th>
+                <th><label for="email" class="labels">Email:</label></th>
+                <th><input type="email" id="email" name="email" class="box"></th>
             </tr>
 
             <tr class="entry-box">
-            <th><label for="password">Password:</label></th>
-            <th><input type="password" id="password" name="password"></th>
+                <th><label for="password" class="labels">Password:</label></th>
+                <th><input type="password" id="password" name="password" class="box"></th>
             </tr>
         </table>
 
@@ -173,18 +149,20 @@
     <!-- returning section -->
 <div id="returning-section" class="section returning">
     <form id="returningForm" method="get" action="login-process.php" onsubmit="return validateReturningForm()">
+    <table class="input-table">
+        <tr class="entry-box">
+            <th><label for="email" class="labels">Email:</label></th>
+            <th><input type="email" id="returning-email" name="email" class="box"></th>
+        </tr>
 
-        <div class="entry-box">
-        <label for="email">Email:</label>
-        <input type="email" id="returning-email" name="email">
-        </div>
+        <tr class="entry-box">
+            <th><label for="password" class="labels">Password:</label></th>
+            <th><input type="password" id="returning-password" name="password" class="box"></th>
+        </tr>
+    </table>
 
-        <div class="entry-box">
-        <label for="password">Password:</label>
-        <input type="password" id="returning-password" name="password">
-        </div>
-
-        <input type="submit" value="Submit" class="button">
+        <input type="submit" value="Login" class="button">
+    
     </form>
 </div>
 

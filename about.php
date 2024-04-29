@@ -25,6 +25,8 @@
             color: #333;
             cursor: pointer;
             transition: background-color 0.3s, color 0.3s;
+            font-family: SourceSerif;
+            font-size: 30px;
         }
 
         /* Active button styles */

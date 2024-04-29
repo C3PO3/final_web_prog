@@ -14,6 +14,23 @@
     font-style: italic;
 }
 
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto-Italic.ttf');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto-Bold.ttf');
+    font-weight: bold;
+}
+
 .page_title {
     font-weight: normal;
     font-size: 2em;
@@ -23,6 +40,7 @@
     letter-spacing: 5px;
 }
 
+<<<<<<< Updated upstream
 body {
     font-family: SourceSerif;
 }
@@ -37,6 +55,36 @@ h2 {
 }
 
 .book img:hover {
+=======
+
+.book {
+    display: inline-block;
+    width: 200px;
+    height: auto;
+    margin: 0 40px 20px 40px;
+    align-items: center;
+    text-align: center;
+    font-family: SourceSerif;
+    color: #000000;
+}
+
+.book h2 {
+    font-family: SourceSerif;
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: 24px;
+}
+
+.book input {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0;
+}
+
+.book input:hover {
+>>>>>>> Stashed changes
     width: 190px;
     height: 290px;
     padding: 5px;
@@ -70,5 +118,9 @@ h2 {
     margin: 0;
     float: right;
     font-style: italic;
+<<<<<<< Updated upstream
 }
 
+=======
+}
+>>>>>>> Stashed changes
