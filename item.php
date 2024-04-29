@@ -8,52 +8,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
         </script>
         <script>
-            $(document).ready(function() {
-                const urlParams = new URLSearchParams(window.location.search);
-                const volumeId = urlParams.get('id');
-
-                // get book specific info
-                const url = "https://www.googleapis.com/books/v1/volumes/" + volumeId;
-                let volumeInfo;
-
-                const req = new XMLHttpRequest();
-                req.open("GET", url, true);
-                req.onreadystatechange = function () {
-                    if (req.readyState === 4) {
-                        if (req.status === 200) {
-                            const data = JSON.parse(req.responseText);
-                            if (data.error) {
-                                console.error("Error:", data.error.message);
-                                return;
-                            }
-                            volumeInfo = data.volumeInfo || {};
-
-                            // Set page elements to book data
-                            $("#coverImg").attr("src", volumeInfo.imageLinks.small 
-                                || volumeInfo.imageLinks.thumbnail).attr('alt', volumeInfo.title);
-                            $("#title").text(volumeInfo.title);
-                            $("#author").text(volumeInfo.authors);
-                            $("#price").text('$10.00')
-                            $("#description").html(volumeInfo.description);
-                            const isbn13 = data.volumeInfo.industryIdentifiers.find(identifier => identifier.type === "ISBN_13").identifier;
-                            $("#IBSN").text(isbn13);
-                            $("#publisher").text(volumeInfo.publisher);
-                            $("#published").text(volumeInfo.publishedDate);
-                            console.log(volumeInfo);
-
-
-                            $(".add").click(function() {
-                                alert(volumeInfo.title + " added to your Cart");
-                            });
-
-                        } else {
-                            console.error("Error:", req.status);
-                        }
-                    }
-                };
-
-                req.send();
-
+            $(".add").click(function() {
+                alert(volumeInfo.title + " added to your Cart");
             });
         </script>
         <style>
@@ -136,6 +92,44 @@
     <body>
         <div class="container">
             <div class="image_container">
+            <?php
+                // Database connection parameters
+                $servername = "localhost";
+                $username = "u5rikrp6bcxpf";
+                $password = "passtest2233";
+                $dbname = "dbseizae2lm8vt";
+
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                $id = $_GET['id'];
+
+                // Query to retrieve book information
+                $sql = "SELECT * FROM book_collection WHERE id=$id";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    // Display book information
+                    $row = $result->fetch_assoc();
+                    ?>
+                    <img id="coverImg" src="<?php echo $row['cover_url']; ?>" alt="<?php echo $row['title']; ?>">
+                    <p>IBSN: <span id="IBSN"><?php echo $row['isbn']; ?></span></p>
+                    <p>Quality: Good<span id="quality"></span></p>
+                    <p>Publisher: <span id="publisher"><?php echo $row['publisher']; ?></span></p>
+                    <p>Published: <span id="published"><?php echo $row['published_date']; ?></span></p>
+                    <?php
+                } else {
+                    echo "0 results";
+                }
+
+                // Close connection
+                $conn->close();
+            ?>
                 <img id="coverImg">
                 <p>IBSN: <span id="IBSN"></span></p>
                 <p>Quality: Good<span id="quality"></span></p>
