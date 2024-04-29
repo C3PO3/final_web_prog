@@ -202,8 +202,8 @@
     <body>
         <div class="page_title"><h1>Enter Book Details</h1></div>
 
-        <div  action="process_sell.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>" method="get" id="sell_book" class="sect">
-        <form id="newForm" method="POST" action="process_sell.php" onsubmit="return validateNewForm()">
+        <div action="process_sell.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>" method="get" id="sell_book" class="sect">
+        <form id="newForm" method="POST" action="process_sell.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>" onsubmit="return validateNewForm()">
             <table class="input-table">
                 <tr class="entry-box">
                     <td class="lable-td"><label for="book_name" class="labels">Book Title:</label></td>
@@ -247,7 +247,7 @@
                 </tr>
 
                 <tr><td class="button-row">
-                    <input type="submit" value="Sell Book" class="input-button">
+                    <input type="submit" value="Sell Book" id = "submit_sell" class="input-button">
                 </td></tr>
             </table>
         </form> 
