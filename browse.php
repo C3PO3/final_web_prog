@@ -11,7 +11,7 @@
         </style>
     <body>
         <?php include 'header.php'; ?>
-        <div class="page_title">
+        <div >
             <h1>BROWSE</h1>
         </div>
         <div class="books-container" id="container">

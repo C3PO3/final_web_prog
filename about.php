@@ -138,7 +138,7 @@
 </head>
 
 <body>
-    <h1 class="page_title">About Us</h1>
+    <div class="page_title"><h1>About Us</h1></div>
 
     <!-- Navigation bar with two buttons -->
     <div class="nav-bar">
