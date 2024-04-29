@@ -11,7 +11,7 @@
     include 'header.php';
 ?>
 
-<h1 class="page_title">Shopping Cart</h1>
+<div class ="page_title"><h1>Shopping Cart</h1></div>
 
 <!-- add code here to use the associative array and display like browse -->
 <?php
