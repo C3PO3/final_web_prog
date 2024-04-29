@@ -42,7 +42,7 @@ include 'header.php';
 $servername = "localhost";
 $username = "uxv8sl1ts3vhy";
 $password = "1*@El&1_68&l";
-$dbname = "dbikb3jnjnetbs";
+$database = "dbikb3jnjnetbs";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
