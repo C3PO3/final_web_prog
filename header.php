@@ -33,11 +33,12 @@
             max-width: 100%;
             width:100%;
             font-size:24px;
-            font-family:roboto;
         }
 
         .navbar li {
             margin-top: 0px;
+            display: inline;
+            margin-right: 15px;
         }
 
         .navbar li.logo {
@@ -45,17 +46,8 @@
             margin-left:0;
         }
 
-        .navbar li {
-            display: inline;
-            margin-right: 15px;
-        }
-
         .navbar .user-cart-container li.cart {
-            margin-right: 15px; 
-        }
-
-        .navbar li.search-container {
-            margin-right: 0px;
+            margin-right: 20px; 
         }
 
 
