@@ -53,6 +53,7 @@
 
         .navbar li.logo img {
             max-width:300px !important;
+
         }
 
         .navbar li a {
@@ -273,10 +274,13 @@
         });
 
         document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            
             const searchInput = document.getElementById('searchInput').value;
-            let formAction = document.getElementById('searchForm').action + "&query=" + encodeURIComponent(searchInput);
-
-            document.getElementById('searchForm').action = formAction;
+            const formAction = document.getElementById('searchForm').action + "&query=" + encodeURIComponent(searchInput);
+            
+            // Redirect to the new URL
+            window.location.href = formAction;
         });
     </script>
  </body>
