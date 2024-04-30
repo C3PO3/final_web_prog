@@ -88,6 +88,7 @@
             }
 
         </style>
+        <?php include 'header.php'; ?>
     </head>
     <body>
         <div class="container">
@@ -142,11 +143,15 @@
                 <h1 id="title"><?php echo $titleVal; ?></h1>
                 <p class="page_author">by: <?php echo $authorVal; ?><span id="author"></span></p>
                 <div style="display: flex;">
-                    <span id="price" class="price"><?php echo $priceVal; ?></span>
+                <?php
+                    $formattedPrice = '$' . number_format($priceVal, 2);
+                ?>
+                    <span id="price" class="price"><?php echo $formattedPrice; ?></span>
                     <span class="add">Add To Cart</span>
                 </div>
                 <p id="description"><?php echo $descVal; ?></p>
             </div>
         </div>
+        <?php include 'footer.php'; ?>
     </body>
 </html>
