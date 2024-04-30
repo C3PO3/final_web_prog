@@ -89,7 +89,6 @@
                 $authorDiv = "<div class='author'>Author: $author</div>";
                 $pubDiv = "<div class='pubDiv'>Published first in: " . $volumeInfo['publishedDate'] . "</div>";
                 $isbnDiv = "<div class='isbn'>ISBN: $isbn</div>"; // Display ISBN
-                // $descriptionDiv = "<div class='description'>Description: $description</div>";
 
                 // Adding book image if available
                 if (isset($volumeInfo['imageLinks'])) {
@@ -97,7 +96,7 @@
                     $bookDiv .= $imageDiv;
                 }
 
-                $bookDiv .= $titleDiv . $authorDiv . $pubDiv . $isbnDiv . $description . "</div>";
+                $bookDiv .= $titleDiv . $authorDiv . $pubDiv . $isbnDiv . "</div>";
                 echo $bookDiv;
             }
         }
