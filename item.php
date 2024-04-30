@@ -11,14 +11,46 @@
                 $(".add").click(function() {
                     // Check if username is provided
                     var username = "<?php echo isset($_GET['username']) ? htmlspecialchars($_GET['username']) : ''; ?>";
+                    $id = isset($_GET['id']) ? $_GET['id'] : 0;
                     if (!username) {
                         alert("Error: please log in to add to cart");
                         return false; // Stop button execution
                     }
                     // Continue with the add to cart functionality
                     alert("Book added to your Cart");
+                    postData();
                 });
             });
+
+            function postData() {
+                // Create a new XMLHttpRequest object
+                var xhr = new XMLHttpRequest();
+
+                // Prepare the data to be sent
+                var data = "key1=value1&key2=value2"; // Replace with your data
+                
+                // Set up the request
+                xhr.open("POST", "add_to_cart.php", true);
+                
+                // Set the Content-Type header for POST requests
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                
+                // Define a callback function to handle the response
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            // Request was successful, handle the response
+                            console.log(xhr.responseText);
+                        } else {
+                            // Error handling
+                            console.error("Error:", xhr.status);
+                        }
+                    }
+                };
+                
+                // Send the request with the data
+                xhr.send(data);
+            }
         </script>
         <style>
             h1 {
