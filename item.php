@@ -8,8 +8,17 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
         </script>
         <script>
-            $(".add").click(function() {
-                alert(volumeInfo.title + " added to your Cart");
+            $(document).ready(function() {
+                $(".add").click(function() {
+                    // Check if username is provided
+                    var username = "<?php echo isset($_GET['username']) ? htmlspecialchars($_GET['username']) : ''; ?>";
+                    if (!username) {
+                        alert("Error: please log in to add to cart");
+                        return false; // Stop button execution
+                    }
+                    // Continue with the add to cart functionality
+                    alert("Book added to your Cart");
+                });
             });
         </script>
         <style>
