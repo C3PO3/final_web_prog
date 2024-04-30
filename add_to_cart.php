@@ -41,7 +41,7 @@
         $row = $result->fetch_assoc();
         
         // Storing cart value in a variable
-        $cart = $row["cart"];
+        $cart_num = $row["cart"];
 
     } else {
         echo "No results found for email: $username";
