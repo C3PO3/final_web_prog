@@ -13,10 +13,39 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Assuming $cart_num, $isbn, and $price are defined elsewhere
-    $cart_num = $_POST['cart_num'];
-    $isbn = $_POST['isbn'];
-    $price = $_POST['price'];
+    $id = $_POST['id'];
+    $username = $_POST['username'];
+    $price = 0;
+    $isbn = 0;
+    $cart_num = 0;
+
+    $sql = "SELECT price, ISBN FROM Books WHERE id = '$id'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // Fetching row data
+        $row = $result->fetch_assoc();
+        
+        // Storing price and ISBN in variables
+        $price = $row["price"];
+        $isbn = $row["ISBN"];
+    } else {
+        echo "No results found";
+    }
+
+    $sql = "SELECT cart FROM users WHERE email = '$username'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // Fetching row data
+        $row = $result->fetch_assoc();
+        
+        // Storing cart value in a variable
+        $cart = $row["cart"];
+
+    } else {
+        echo "No results found for email: $username";
+    }
 
     $sql = "INSERT INTO all_carts VALUES ($cart_num, $isbn, $price)";
     $result = $conn->query($sql);
