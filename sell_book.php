@@ -14,10 +14,10 @@
                 margin-bottom: 30px;
                 margin-top: 10px;
                 font-size: 20px;
-
             }
             .quality-option-text {
                 margin-top: 5px;
+                text-align: center;
             }
 
             .quality-option {
@@ -25,6 +25,8 @@
                 margin-right: 10px;
                 margin-left: 10px;
                 cursor: pointer;
+                width: 200px;
+                text-align: center;
             }
 
             .quality-radio {
@@ -35,8 +37,7 @@
                 font-weight: bold; /* Example styling for selected option */
             }
             .quality-option.selected {
-                background-color: #E76F51; /* Selected background color */
-                color: #fff; /* Text color for selected state */
+               font-style: italic;
             }
 
             .quality-option:hover {
@@ -52,17 +53,19 @@
                 padding: 4px 11px;
                 font-size: 20px;
                 cursor: pointer;
-        
+                text-align: center;
             }
 
             .qbutton {
                 margin: 5px;
                 border: 2px solid #000000;
                 border-radius: 5px;
+                width: 120px;
+                text-align: center;
             }
 
             .quality-container input[type="radio"]:checked+label {
-                background-color: #e1e1e1;
+                font-style: italic;
             }
           
             .input-table {
@@ -177,6 +180,29 @@
                 background-color: #ffffff;
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
                 border-radius: 15px;
+            }
+
+            label {
+                text-align: center;
+            }
+
+            @media (max-width: 1000px) {
+                .quality-container {
+                    display: block;
+                }
+                .qbutton {
+                    margin: auto;
+                    margin-top: 6px;
+                    margin-bottom: 6px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .section {
+                    max-width: 90%;
+                }
+
+                
             }
 
         </style>

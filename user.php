@@ -139,7 +139,6 @@
 
     .section {
         max-width: 90%;
-        width: 100%;
     }
 
     .input-table {
