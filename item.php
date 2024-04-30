@@ -17,20 +17,11 @@
                     }
 
                     // Gather book ID
-                    var bookId = "<?php echo $id; ?>";
+                    var bookId = "<?php echo isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''; ?>";
 
-                    // Send book ID to add_to_cart.php using AJAX
-                    $.ajax({
-                        type: "POST",
-                        url: "add_to_cart.php",
-                        data: { bookId: bookId },
-                        success: function(response) {
-                            alert("Book added to your Cart");
-                        },
-                        error: function(xhr, status, error) {
-                            console.error(xhr.responseText);
-                            alert("An error occurred while adding the book to the cart. Please try again later.");
-                        }
+                    // user to add_to_cart.php with bookId and username
+                    $.post("add_to_cart.php", { id: bookId, username: username }, function(data) {
+                        alert(data); // Display response message
                     });
                 });
             });
