@@ -202,6 +202,17 @@
                     max-width: 90%;
                 }
 
+                .input-button {
+                font-family: SourceSerif;
+                font-size: 30px;
+                background-color: #ffffff;
+                border: 1px, solid, #000000;
+                border-radius: 5px;
+                text-align: center;
+                margin: auto 0;
+                color: #000000;
+            }
+
                 
             }
 
