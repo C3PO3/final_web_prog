@@ -47,7 +47,7 @@
         echo "No results found for email: $username";
     }
 
-    $sql = "INSERT INTO all_carts VALUES ($cart_num, $isbn, $price)";
+    $sql = "INSERT INTO all_carts (cart_num, isbn, price) VALUES ('$cart_num', '$isbn', '$price')";
     $result = $conn->query($sql);
 
     $conn->close();
