@@ -93,6 +93,10 @@
         <div class="container">
             <div class="image_container">
             <?php
+                $titleVal = "";
+                $authorVal = "";
+                $priceVal = 0;
+                $descVal = "";
                 // Database connection parameters
                 $servername = "localhost";
                 $username = "uxv8sl1ts3vhy";
@@ -115,6 +119,10 @@
                 if ($result->num_rows > 0) {
                     // Display book information
                     $row = $result->fetch_assoc();
+                    $titleVal = $row['title'];
+                    $authorVal = $row['author'];
+                    $priceVal = $row['price'];
+                    $descVal = $row['description'];
                     ?>
                     <img id="coverImg" src="<?php echo $row['image']; ?>" alt="<?php echo $row['title']; ?>">
                     <p>IBSN: <span id="IBSN"><?php echo $row['ISBN']; ?></span></p>
@@ -131,13 +139,13 @@
             ?>
             </div>
             <div class="infoFlex">
-                <h1 id="title"></h1>
-                <p class="page_author">by: <span id="author"></span></p>
+                <h1 id="title"><?php echo $titleVal; ?></h1>
+                <p class="page_author">by: <?php echo $authorVal; ?><span id="author"></span></p>
                 <div style="display: flex;">
-                    <span id="price" class="price"></span>
+                    <span id="price" class="price"><?php echo $priceVal; ?></span>
                     <span class="add">Add To Cart</span>
                 </div>
-                <p id="description"></p>
+                <p id="description"><?php echo $descVal; ?></p>
             </div>
         </div>
     </body>
