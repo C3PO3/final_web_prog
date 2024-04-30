@@ -180,10 +180,15 @@
                                     echo "</div>";
                                     echo "</div>";
                                 }
+                                
                             } else {
                                 echo "No book found with the given ISBN and price.";
                             }
                         }
+                        echo '</div>';
+                        echo '<div class="purchase-section">';
+                        echo '<a href="checkout.php?username=' . htmlspecialchars($_GET['username']) . '" class="purchase-button">Proceed to Checkout</a>';
+                        echo '</div>';
                         
                         echo '</div>';
                     } else {
@@ -204,9 +209,7 @@
         // Close connection
         $conn->close();
     ?>
-<div class="purchase-section">
-    <a href="checkout.php" class="purchase-button">Proceed to Checkout</a>
-</div>
+
 </div>
 
 <?php
