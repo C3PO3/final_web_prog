@@ -8,7 +8,7 @@
         .checkout-form {
             width: 50%;
             margin: 50px auto;
-            padding: 20px;
+            padding: 40px;
             border: 1px solid #ccc;
             border-radius: 8px;
             background-color: #f9f9f9;
@@ -34,7 +34,7 @@
         .checkout-form input[type="submit"] {
             width: 100%;
             padding: 10px;
-            background-color: #4CAF50;
+            background-color: #264653;
             color: white;
             border: none;
             border-radius: 4px;
@@ -44,22 +44,31 @@
 
         /* Submit button hover effect */
         .checkout-form input[type="submit"]:hover {
-            background-color: #45a049;
+            background-color: #1e3b49;
         }
     </style>
 </head>
 <body>
 
 <?php include 'header.php'; ?>
+<div class="page_title"><h1>CHECKOUT</h1></div>
 
 <div class="checkout-form">
-    <h2>Checkout</h2>
     <form action="checkout-process.php<?= isset($_GET['username']) ? '?username=' . htmlspecialchars($_GET['username']) : '' ?>" method="POST">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
 
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address" required>
+        <label for="address-line1">Address Line 1:</label>
+        <input type="text" id="address-line1" name="address_line1" required>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required>
+
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state" required>
+
+        <label for="postal-code">Postal Code:</label>
+        <input type="text" id="postal-code" name="postal_code" required>
 
         <label for="cc-number">Credit Card Number:</label>
         <input type="text" id="cc-number" name="cc_number" required>

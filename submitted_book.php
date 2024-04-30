@@ -6,15 +6,15 @@
         <link rel="stylesheet" type = "text/css" href= "style.css">
         <?php include 'header.php'; ?>
         <meta charset="utf-8">
-        <style>
-            .info-message {
+        <style type=text/css>
+            .success-message {
                 text-align: center;
                 margin: 20px;
                 padding: 10px;
                 border-radius: 4px;
-                color: #0c5460; /* Teal color for text */
-                background-color: #d1ecf1; /* Light teal background */
-                border: 1px solid #bee5eb; /* Border color */
+                color: #155724;
+                background-color: #d4edda;
+                border: 1px solid #c3e6cb;
                 font-weight: bold;
             }
         </style>
@@ -30,6 +30,8 @@
     $author = $_GET['author'];
     $description = $_GET['description'];
     $image = $_GET['image'];
+    $pub = $_GET['pub'];
+    $pubDate = $_GET['pubDate'];
 
     // Database connection parameters
     $servername = "localhost";
@@ -46,15 +48,15 @@
     }
 
     // Prepare SQL statement to insert data into the book_collection table
-    $sql = "INSERT INTO Books (ISBN, quality, price, title, author, description, image) VALUES ('$isbn', '$quality', '$price', '$title', '$author', '$description', '$image')";
+    $sql = "INSERT INTO Books (ISBN, quality, price, title, author, description, image, publisher, publishedDate) VALUES ('$isbn', '$quality', '$price', '$title', '$author', '$description', '$image', '$pub', '$pubDate')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "<div class='info-message'>New book added successfully. Please continue browsing!</div>";
+        echo "<div class='success-message'>New book added successfully. Please continue browsing!</div>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
     // Close connection
     $conn->close();
+    include 'footer.php';
 ?>
-<?php include 'footer.php'; ?>
