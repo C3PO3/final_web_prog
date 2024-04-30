@@ -95,10 +95,9 @@
             <?php
                 // Database connection parameters
                 $servername = "localhost";
-                $username = "u5rikrp6bcxpf";
-                $password = "passtest2233";
-                $dbname = "dbseizae2lm8vt";
-
+                $username = "uxv8sl1ts3vhy";
+                $password = "1*@El&1_68&l";
+                $dbname = "dbikb3jnjnetbs";
                 // Create connection
                 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -110,18 +109,18 @@
                 $id = $_GET['id'];
 
                 // Query to retrieve book information
-                $sql = "SELECT * FROM book_collection WHERE id=$id";
+                $sql = "SELECT * FROM Books WHERE id=$id";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
                     // Display book information
                     $row = $result->fetch_assoc();
                     ?>
-                    <img id="coverImg" src="<?php echo $row['cover_url']; ?>" alt="<?php echo $row['title']; ?>">
-                    <p>IBSN: <span id="IBSN"><?php echo $row['isbn']; ?></span></p>
+                    <img id="coverImg" src="<?php echo $row['image']; ?>" alt="<?php echo $row['title']; ?>">
+                    <p>IBSN: <span id="IBSN"><?php echo $row['ISBN']; ?></span></p>
                     <p>Quality: Good<span id="quality"></span></p>
                     <p>Publisher: <span id="publisher"><?php echo $row['publisher']; ?></span></p>
-                    <p>Published: <span id="published"><?php echo $row['published_date']; ?></span></p>
+                    <p>Published: <span id="published"><?php echo $row['publishedDate']; ?></span></p>
                     <?php
                 } else {
                     echo "0 results";
@@ -130,11 +129,6 @@
                 // Close connection
                 $conn->close();
             ?>
-                <img id="coverImg">
-                <p>IBSN: <span id="IBSN"></span></p>
-                <p>Quality: Good<span id="quality"></span></p>
-                <p>Publisher: <span id="publisher"></span></p>
-                <p>Published: <span id="published"></span></p>
             </div>
             <div class="infoFlex">
                 <h1 id="title"></h1>
