@@ -51,4 +51,8 @@
     $result = $conn->query($sql);
 
     $conn->close();
+
+    // Redirect to browse.php with username parameter
+    header("Location: browse.php?username=$username");
+    exit();
 ?>
