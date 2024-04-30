@@ -256,6 +256,8 @@
                 </div></td>
                 </tr>
 
+                <input type="hidden" id="username" name="username" value = "<?= isset($_GET['username']) ? htmlspecialchars($_GET['username']) : '' ?>">
+
                 <tr><td class="button-row">
                     <input type="submit" value="Sell Book" id = "submit_sell" class="input-button">
                 </td></tr>
