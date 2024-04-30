@@ -13,15 +13,16 @@
         <style type=text/css>
             /* Your CSS styles here */
             .book {
-                border: 1px solid #ccc;
+                border: 2px solid #000000;
                 padding: 10px;
                 margin-bottom: 10px;
-                background-color: #f9f9f9;
+                margin-top: 10px;
                 transition: background-color 0.3s;
+                border-radius: 5px;
             }
 
             .book:hover {
-                background-color: #e9e9e9;     
+                background-color: #e1e1e1;     
                 cursor: pointer;
             }
 
@@ -30,6 +31,7 @@
                 height: auto;
                 margin-right: 10px;
                 float: left;
+                border-radius: 5px;
             }
 
             .title {
