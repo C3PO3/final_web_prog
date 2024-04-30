@@ -97,7 +97,7 @@
                     $bookDiv .= $imageDiv;
                 }
 
-                $bookDiv .= $titleDiv . $authorDiv . $pubDiv . $isbnDiv . $descriptionDiv . "</div>";
+                $bookDiv .= $titleDiv . $authorDiv . $pubDiv . $isbnDiv . "</div>";
                 echo $bookDiv;
             }
         }
