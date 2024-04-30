@@ -170,7 +170,16 @@
                 height: 50px;
             }
 
-
+            .sect{
+                display: block;
+                max-width: 70%;
+                width: 800px;
+                margin: 40px auto;
+                padding: 40px;
+                background-color: #ffffff;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                border-radius: 15px;
+            }
 
         </style>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
