@@ -78,7 +78,7 @@
                 $isbn = isset($volumeInfo['industryIdentifiers']) && count($volumeInfo['industryIdentifiers']) > 0 ? $volumeInfo['industryIdentifiers'][0]['identifier'] : "unknown";
                 $title = $volumeInfo['title'];
                 $author = isset($volumeInfo['authors']) ? implode(", ", $volumeInfo['authors']) : "Unknown";
-                $description = isset($volumeInfo['description']) ? mysqli_real_escape_string($connection, $volumeInfo['description']) : "Description not available";
+                $description = isset($volumeInfo['description']) ? htmlspecialchars($volumeInfo['description']) : "Description not available";
                 $image = isset($volumeInfo['imageLinks']['small']) ? $volumeInfo['imageLinks']['small'] : (isset($volumeInfo['imageLinks']['thumbnail']) ? $volumeInfo['imageLinks']['thumbnail'] : "Image not available");
                 $pub = isset($volumeInfo['publisher']) ? $volumeInfo['publisher'] : "Publisher not available";
                 $pubDate = isset($volumeInfo['publishedDate']) ? $volumeInfo['publishedDate'] : "Publication date not available";
@@ -97,7 +97,7 @@
                     $bookDiv .= $imageDiv;
                 }
 
-                $bookDiv .= $titleDiv . $authorDiv . $pubDiv . $isbnDiv . "</div>";
+                $bookDiv .= $titleDiv . $authorDiv . $pubDiv . $isbnDiv . $description . "</div>";
                 echo $bookDiv;
             }
         }
