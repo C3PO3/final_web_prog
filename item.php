@@ -19,10 +19,27 @@
                     // Gather book ID
                     var bookId = "<?php echo isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''; ?>";
 
-                    // user to add_to_cart.php with bookId and username
-                    $.post("add_to_cart.php", { id: bookId, username: username }, function(data) {
-                        alert(data); // Display response message
-                    });
+                    // Create a form dynamically
+                    var form = $("<form>").attr({
+                        method: "post",
+                        action: "add_to_cart.php"
+                    }).css("display", "none");
+
+                    // Append bookId and username as hidden inputs
+                    form.append($("<input>").attr({
+                        type: "hidden",
+                        name: "id",
+                        value: bookId
+                    }));
+                    form.append($("<input>").attr({
+                        type: "hidden",
+                        name: "username",
+                        value: username
+                    }));
+
+                    // Append the form to body and submit it
+                    $("body").append(form);
+                    form.submit();
                 });
             });
         </script>
