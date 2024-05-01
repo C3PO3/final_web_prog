@@ -283,7 +283,7 @@
         function validateNewForm() {
             var firstName = document.getElementById("first_name").value;
             var lastName = document.getElementById("last_name").value;
-            var username = document.getElementById("username").value;
+            var username = document.getElementById("email").value;
             var password = document.getElementById("password").value;
 
             if (firstName === '' || lastName === '' || username === '' || password === '') {
@@ -300,7 +300,7 @@
         }
 
         function validateReturningForm() {
-            var rusername = document.getElementById("returning-username").value;
+            var rusername = document.getElementById("returning-email").value;
             var rpassword = document.getElementById("returning-password").value;
 
             if (rusername === '' || rpassword === '') {
