@@ -28,7 +28,6 @@
     $price = $_GET['price'];
     $title = $_GET['title'];
     $author = $_GET['author'];
-    $description = $_GET['description'];
     $image = $_GET['image'];
     $pub = $_GET['pub'];
     $pubDate = $_GET['pubDate'];
@@ -41,6 +40,8 @@
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
+
+    $description = isset($_GET['description']) ? $conn->real_escape_string($_GET['description']) : '';
 
     // Check connection
     if ($conn->connect_error) {
